@@ -115,17 +115,16 @@ Create an sf object from dfb1.
 
 
 ```{r}
-bikes1_sf = st_as_sf(dfb1, coords = c("start_lng", "start_lat"), 
+crime_sf = st_as_sf(dfb1, coords = c("x", "y"), 
                  crs = 4269, agr = "constant")
-dfbu=dfb %>% mutate(rounded=round(start_lat,7)) %>%  distinct(rounded,.keep_all=T) %>% drop_na()
-bikes_sf = st_as_sf(dfbu , coords = c("start_lng", "start_lat"), 
-                 crs = 4269, agr = "constant")
+#dfbu=dfb %>% mutate(rounded=round(start_lat,7)) %>%  distinct(rounded,.keep_all=T) %>% drop_na()
+# bikes_sf = st_as_sf(dfbu , coords = c("start_lng", "start_lat"),                  crs = 4269, agr = "constant")
 
 ```
 
 ```{r}
 
-tm_shape(bikes_sf)+tm_dots(size=.01,alpha=.2)+
+tm_shape(crime_sf)+tm_dots(size=.02,alpha=.2,col="red")+
   tm_shape(census_sf)+tm_polygons(alpha=.3)+
   tm_basemap( leaflet::providers$OpenStreetMap )
 ```
