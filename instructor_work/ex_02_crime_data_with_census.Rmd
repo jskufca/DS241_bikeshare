@@ -1,0 +1,148 @@
+---
+title: "Analysis of crime data --- merge with census tracts"
+subtitle: "Experiment 02"
+
+author: "Joe Skufca"
+date: "11 November 2020"
+output: html_notebook
+---
+
+The goal of this analysis is to see if I can merge crime data with spatial data.
+
+## Prepare workspace:
+
+#### Load packages
+
+We will work primarily within the context of the tidyverse set of packages, with a few additional packages supporting exploratory analysis.  I have included the `lubridate` package, as we will want to do some work with dates.
+
+```{r}
+library(sf)
+library(leaflet)
+library(tmap)
+library(tmaptools)
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(skimr)
+library(summarytools)
+library(lubridate)
+```
+
+I will also set a default theme for my ggplots.
+
+```{r}
+theme_set(theme_minimal())
+```
+
+
+## Data
+
+I use two datasources in this analysis.  Spatial data (with polygons) comes via the US census data site.  
+
+The crime data (from the crime team) has pedigree, but I do not yet have the documentation.
+
+> TODO - document the datasource
+
+
+### Read the  crime data
+
+Andrew acquired the data and downloaded an Excel file.  The data covers the 2018 timeframe.
+
+```{r}
+thisfile="../data_raw/Crime_Incidents_in_2018.xlsx"
+
+dfa= read_excel(thisfile) %>% clean_names()
+
+
+```
+
+
+#### Cleaning crime data
+
+Data appears to be reasonably clean, though report date is character, not date.  
+
+```{r}
+dfb=dfa %>% mutate(report_dat=as_datetime(report_dat))
+```
+
+
+Let's also create a small dataset while we explore possiblities for prociessing.
+
+```{r}
+dfb1=dfb %>% slice_sample(n=1000)
+```
+
+### Read shapefile data
+
+
+```{r}
+census_sf =  st_read("../data_raw/tl_2019_11_tract/tl_2019_11_tract.shp") %>% clean_names()
+```
+
+A basic view of the census polygons.
+
+```{r}
+tmap_mode("view")
+tm_shape(census_sf)+tm_polygons(alpha=.3)
+```
+
+
+We note that the census tract designiation is (a) not numeric and (b) not consisent with the crime data.  Let's try to find a method to create a new variable that will allow matching.
+
+It seems that the "geoid" variable may give us a pathway to the numeric component description via the last 5 characters.
+
+```{r}
+census_sf$geoid %>% str_sub(-5,-1) %>% as.numeric() %>% sort()
+
+
+dfb$census_tract %>% unique() %>% sort()
+
+```
+We will create new variable, rather than overwriting, in the census_sf dataset.
+
+```{r}
+census_sf= census_sf %>% mutate(tract_num=geoid %>% str_sub(-5,-1) %>% as.numeric())
+```
+
+
+
+## NOT FIXED BELOW
+
+
+### Plotting both datasets
+
+Create an sf object from dfb1.
+
+
+```{r}
+bikes1_sf = st_as_sf(dfb1, coords = c("start_lng", "start_lat"), 
+                 crs = 4269, agr = "constant")
+dfbu=dfb %>% mutate(rounded=round(start_lat,7)) %>%  distinct(rounded,.keep_all=T) %>% drop_na()
+bikes_sf = st_as_sf(dfbu , coords = c("start_lng", "start_lat"), 
+                 crs = 4269, agr = "constant")
+
+```
+
+```{r}
+
+tm_shape(bikes_sf)+tm_dots(size=.01,alpha=.2)+
+  tm_shape(census_sf)+tm_polygons(alpha=.3)+
+  tm_basemap( leaflet::providers$OpenStreetMap )
+```
+
+
+
+### Can I do a spatial join
+
+
+Leftjoin of bikes with census tract
+
+```{r}
+dfj=st_join(bikes1_sf,census_sf,join=st_within)
+
+dfj2 =st_join(census_sf,bikes_sf,join=st_contains) %>% count(name) 
+
+dfj2 %>% tm_shape()  +tm_polygons("n",alpha=.6)+
+  tm_basemap( leaflet::providers$OpenStreetMap )
+
+```
