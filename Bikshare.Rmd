@@ -1,0 +1,55 @@
+---
+title: "DC Mapping"
+author: "Trevor Labrecque and Bailey Mull"
+date: "11 Nov 2020"
+output: html_notebook
+---
+
+The intention of this document is to put together a map of the Washington DC area that will allow the class to join data. We will be able to then create spatial plots for the various variables.
+
+## Load packages
+
+To start, we load in some packages that will be useful if this is the file that the class uses to combine all the data. For the case of the mapping, we will be using the librarys readxl as well as sf.
+```{r}
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(skimr)
+library(summarytools)
+library(tidyr)
+library(ggplot2)
+library(lubridate)
+library(sp)
+library(sf)
+library(tmap)
+library(tmaptools)
+library(rgdal)
+```
+
+## Read the data
+In this case, the data for the mapping is in the form of a shape file. This chunk reads that shape file into a dataframe called DC
+```{r}
+DC <- st_read("Preliminary_2020_Census_Tract/Preliminary_2020_Census_Tract.shp")
+```
+
+## Remove Some Variables
+Several of the variables in the dataset are not of interest to us or do not provide any insight. We will remove those variables to reduce clutter.
+```{r}
+DC <- DC %>% select(c(OBJECTID,NAME,POP10,HOUSING10,SHAPEAREA))
+```
+
+
+## Plot Spatial Data
+Now that we have the data cleaned up, we can take a look at how the plots look. As an example, we will take a look at the POP10 variable which is the population within each of these census tracts. This can be done easily with tm_shape and tm_polygons from the sf package.
+```{r }
+tmap_mode("plot")
+tm_shape(DC) +
+  tm_polygons("POP10", style="quantile", title="DC Population")
+```
+
+Another feature we can take advantage of is the ability to place the plot on a map of the world. tmap does this easily by simply swapping the mode from plot to view. This allows you to zoom in and out much like you would do in google maps.
+```{r}
+tmap_mode("view")
+tmap_last()
+```
+
