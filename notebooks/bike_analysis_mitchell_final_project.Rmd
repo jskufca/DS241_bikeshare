@@ -1,0 +1,166 @@
+---
+title: "Analysis of bikeshare data"
+subtitle: "DS241 Final Project"
+
+author: "Cameron Mitchell"
+date: "11/13/2020"
+output: html_notebook
+---
+
+The goal of this analysis is to gain some knowledge about the Washington D.C. bikeshare data coming from the Capital Bikeshare service, and ultimately be used to make a regression model to understand the relationships between variables. This might then allow us to develop a strategy  to increase ridership. This is only one part of a larger project that is analyzing trends in the bikeshare data when taking other factors into consideration. 
+
+The other teams that are working on this project include the demographic team, the crime team, and the mapping team. The demographic and crime team are looking for trends in Washington D.C. that might help our analysis. The mapping team is attempting to visually show information on real maps.
+
+## Prepare workspace:
+
+Load packages:
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(skimr)
+library(summarytools)
+library(lubridate)
+library(grid)
+library(gridExtra)
+```
+
+## Data
+
+The Capital Bikeshare system provides free data for anyone to use. It tracks information such as where riders go, when they ride, how far they go and much more.
+Link to the download location:
+https://s3.amazonaws.com/capitalbikeshare-data/index.html
+
+We were originally going to work with data from August of 2020, but we decided to go back to a time before Covid-19 and use data from August of 2018.
+
+Read the data:
+
+We read the original .csv file and add in the variables new variables 'duration_min', 'hour_of_day', and 'day of week' with mutate.
+
+```{r}
+dfa = read_csv("../data_raw/201808-capitalbikeshare-tripdata.csv") %>%
+  clean_names() %>%
+  mutate(duration = as.numeric(end_date - start_date),
+         hour_of_day = hour(start_date),
+         day_of_week = wday(start_date, label = T))
+```
+
+We summarize that dataframe to identify data types, missing data, et cetera.
+
+```{r}
+skim(dfa)
+```
+
+As you can see from the above summary, there are no longitude and latitude points unlike the August 2020 data that we were considering exploring. As a solution we will be joining those two dataframes together to get the coordinates into the 2018 dataframe.
+
+```{r}
+dfcoord = read_csv("../data_raw/202008-capitalbikeshare-tripdata.csv") %>%
+  clean_names()
+
+dfa$start_lat <- dfcoord$start_lat[match(dfa$start_station, dfcoord$start_station_name)]
+dfa$start_lng <- dfcoord$start_lng[match(dfa$start_station, dfcoord$start_station_name)]
+
+dfa$end_lat <- dfcoord$end_lat[match(dfa$end_station, dfcoord$end_station_name)]
+dfa$end_lng <- dfcoord$end_lng[match(dfa$end_station, dfcoord$end_station_name)]
+```
+One thing that I observed after opening the 2020 data is that the 2018 data has about 150,000 more observations. Our guess for the reasoning behind that is not because of a loss of interest from riders, but instead is the impact that Covid-19 had on this company.
+
+
+## Cleaning
+
+Now we need to clean the data by removing the incomplete, incorrect, and irrelevant data from the dataframe. One part of the data that was incomplete was for the instances where the addresses did not match up, which left the longitude and latitude values as 'NA'. Another thing we should correct is the end dates that keep going after August into September.
+
+```{r}
+dfb = dfa %>%
+  filter(!is.na(start_lat),
+         !is.na(end_lat),
+         !(month(end_date) == 09))
+```
+
+This ends up being about 47,000 observations (or a little under 12%) that we will take out of the dataframe. This still leaves more than enough data to work with for the analysis.
+
+
+## Data Manipulation And Visualization
+
+If our main goal in this analysis is to increase ridership, we need to first determine what ridership actually means. As a team we decided that the amount of current riders was a good way of representing ridership. This ridership can then be compared against other variables to see if they have any relationship.
+
+To do this we will be incrementing through a list of all the start and end times and keeping track how many current riders there are at each time.
+
+```{r}
+dfriders = dfb %>%
+  pivot_longer(start_date:end_date, names_to="type",values_to="t") %>% arrange(t) %>%
+  mutate(increment=case_when(
+   type=="start_date"~1,
+   type=="end_date" ~ -1)) %>%
+  mutate(riders=cumsum(increment))
+
+# plotting the ridership vs time
+ggplot(dfriders, aes(t,riders)) + geom_step() 
+```
+
+Lets look at individual days to see how time of day effects ridership
+
+```{r}
+aug07 <- ggplot(dfriders, aes(t,riders)) + geom_step() +
+  scale_x_datetime(limits=as_datetime(c("2018-08-07","2018-08-08"))) +
+  ggtitle("August 7th")
+
+aug08 <- ggplot(dfriders, aes(t,riders)) + geom_step() +
+  scale_x_datetime(limits=as_datetime(c("2018-08-08","2018-08-09"))) +
+  ggtitle("August 8th")
+
+aug09 <- ggplot(dfriders, aes(t,riders)) + geom_step() +
+  scale_x_datetime(limits=as_datetime(c("2018-08-09","2018-08-10"))) +
+  ggtitle("August 9th")
+
+aug10 <- ggplot(dfriders, aes(t,riders)) + geom_step() +
+  scale_x_datetime(limits=as_datetime(c("2018-08-10","2018-08-11"))) +
+  ggtitle("August 10th")
+
+grid.arrange(aug07, aug08, aug09, aug10, nrow = 2)
+```
+
+It seems as if there are 2 major peaks that occur each day. A possible reason for this could be people going to and from work. The first peak is around 8am-9am and the second peak is around 5pm-6pm.
+
+Lets look at the different days of the week as well to see if they differ in ridership.
+
+```{r}
+dfriders %>% filter(mday(t)<=7) %>% 
+  ggplot(aes(t,riders)) + geom_step() +
+  facet_wrap(~wday(t, label = TRUE), scales = "free_x", ncol = 7)
+```
+In this week the ridership is higher on the weekend, especially on Saturday, compared to the weekdays. The weekend ridership has a higher maximum amount of riders but also there is almost no drop off throughout the middle of the day like the weekdays have.
+
+Lets look to see how long of a duration most of the rides are.
+```{r}
+dfriders %>% filter(duration<150,duration>0) %>% 
+  ggplot(aes(x=duration)) + geom_histogram(binwidth = .5)
+```
+
+Exploring the differences between the two rider types, 'Member' or 'Casual' and if they have a difference in ridership
+```{r}
+dfriders %>% group_by(member_type) %>%
+  ggplot(aes(t,riders,color=member_type)) + geom_step() +
+  scale_x_datetime(limits=as_datetime(c("2018-08-07","2018-08-08")))
+```
+There are almost no differences between the two member types when it comes to ridership.
+
+Finding out how many riders are there per hour time interval.
+```{r}
+dfriders %>% group_by(wday(t, label = TRUE),hour(t)) %>%
+  summarise(mean_riders = mean(riders),
+            max_riders = max(riders))
+```
+
+## Reflection
+
+After looking at all of the data and exploring it we decided that the best variables that we can use to find a relationship are day_of_week and hour_of_day.
+
+This is an attempt at making a regression model:
+```{r}
+model = lm(dfriders$riders ~ dfriders$hour_of_day + dfriders$day_of_week)
+summary(model)
+```
+
+Another thing that I thought could be used for this analysis was distance from downtown but I did not have the time to explore that.
