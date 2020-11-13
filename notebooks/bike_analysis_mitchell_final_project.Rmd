@@ -7,15 +7,13 @@ date: "11/13/2020"
 output: html_notebook
 ---
 
-The goal of this analysis is to gain some knowledge about the Washington D.C. bikeshare data coming from the Capital Bikeshare service. This is only one part of a larger project that is analyzing trends in the bikeshare data when taking other factors into consideration. 
+The goal of this analysis is to gain some knowledge about the Washington D.C. bikeshare data coming from the Capital Bikeshare service, and ultimately be used to make a regression model to understand the relationships between variables. This might then allow us to develop a strategy  to increase ridership. This is only one part of a larger project that is analyzing trends in the bikeshare data when taking other factors into consideration. 
 
 The other teams that are working on this project include the demographic team, the crime team, and the mapping team. The demographic and crime team are looking for trends in Washington D.C. that might help our analysis. The mapping team is attempting to visually show information on real maps.
 
 ## Prepare workspace:
 
 Load packages:
-
-We will work primarily within the context of the tidyverse set of packages, with a few additional packages supporting exploratory analysis.  I have included the `lubridate` package, as we will want to do some work with dates.
 
 ```{r}
 library(tidyverse)
@@ -24,30 +22,9 @@ library(readxl)
 library(skimr)
 library(summarytools)
 library(lubridate)
+library(grid)
+library(gridExtra)
 ```
-
-#######################################################################################################
-### Notes ###
-visualize the bikeshare data on the map, looking at frequency within census tracking
-
-Organize the data by census tract maybe?
-
-# ```{r}
-# model = lm(yield_data$yield ~ yield_data$temperature)
-# ```
-
-# ```{r}
-# summary(model)
-# ```
-
-#as.factor(bikeshare$weekday)
-#lm(bikeshare$ridership ~ bikeshare$hour + bikeshare$weekday)
-
-categorical predictors: day of week, time of day(hour)
-
-ridership is deficit/gain
-########################################################################################################
-
 
 ## Data
 
@@ -65,8 +42,8 @@ We read the original .csv file and add in the variables new variables 'duration_
 dfa = read_csv("../data_raw/201808-capitalbikeshare-tripdata.csv") %>%
   clean_names() %>%
   mutate(duration = as.numeric(end_date - start_date),
-    hour_of_day = hour(start_date),
-    day_of_week = wday(start_date, label = T))
+         hour_of_day = hour(start_date),
+         day_of_week = wday(start_date, label = T))
 ```
 
 We summarize that dataframe to identify data types, missing data, et cetera.
@@ -92,250 +69,98 @@ One thing that I observed after opening the 2020 data is that the 2018 data has 
 
 ## Cleaning
 
-Now we need to clean the data by removing the incomplete, incorrect, and irrelevant data from the dataframe. All of the data seems to be valid except for the instances where the addresses did not match up, which left the longitude and latitude values as 'NA'.
+Now we need to clean the data by removing the incomplete, incorrect, and irrelevant data from the dataframe. One part of the data that was incomplete was for the instances where the addresses did not match up, which left the longitude and latitude values as 'NA'. Another thing we should correct is the end dates that keep going after August into September.
 
 ```{r}
 dfb = dfa %>%
   filter(!is.na(start_lat),
-         !is.na(end_lat))
+         !is.na(end_lat),
+         !(month(end_date) == 09))
 ```
 
-This ends up being about 47,000, or a little under 12%, observations that we will take out of the dataframe. This still leaves more than enough data to work with for the analysis.
+This ends up being about 47,000 observations (or a little under 12%) that we will take out of the dataframe. This still leaves more than enough data to work with for the analysis.
 
 
+## Data Manipulation And Visualization
 
+If our main goal in this analysis is to increase ridership, we need to first determine what ridership actually means. As a team we decided that the amount of current riders was a good way of representing ridership. This ridership can then be compared against other variables to see if they have any relationship.
 
-
-
-
-
-
-
-
-
-
-
-##################################################################################
-
-#### A histogram - like we did in class
-
-As we discussed in class, we might be interested in looking at histogram of durations, broken out for each day of the week.  Here I filter to positive duration shorter than 100 minutes.
+To do this we will be incrementing through a list of all the start and end times and keeping track how many current riders there are at each time.
 
 ```{r}
-dfa %>% filter(duration<100,duration>0) %>% 
-  ggplot(aes(x=duration)) + geom_histogram(bins = 300)+facet_wrap(~day_of_week)
-```
-
-
-### Some visual exploration.
-
-Can a scatterplot be revealing?  Many possibilities, but I have decided to focus on "short" trips (duration less than an hour) for a particular day (the 3rd day of the month).  
-
-Does the trip duration have a pattern when plotted vs. starting time?
-
-```{r}
-dfb %>% filter(mday(started_at)==3,duration<60) %>% ggplot(aes(x=started_at,y=duration))+
-  geom_point(alpha=.1)+
-  ggtitle("Trip duration vs start time (August 3)")
-```
-
-### Riders vs time
-
-Let's try to construct a dataframe that could track number of riders (at any instant in time), where we will assume (not reasonably) that there were no riders at 00:00.
-
-
-I will develop (and test) the logic on a small set of data.  
-A small dataset works fast and is easy to read.  
-Once we build the logic for the small set, it is easy to generalize.
-
-
-The `slice_sample` command below takes a random sample of 100 rows.
-So ... my experimental dataframe, `dfe`,  limits to the 3rd day of the month, and only 100 rows.
-
-
-```{r}
-dfe=dfb %>% filter(mday(started_at)==3) %>% slice_sample(n=100)
-```
-
-
-#### Designing an algorithm
-
-Now lets build a process.   I will proceed step by step (copying and pasting to add one new step to my process until I get what I want).
-
-
-
-I think we only need start and end times.
-
-```{r}
-dfe %>% select(start=started_at,end=ended_at)
-```
-Create a long dataset
-
-```{r}
-dfe %>% select(start=started_at,end=ended_at) %>%
-  pivot_longer(start:end) 
-```
-Pick good names, then order by time.
-
-```{r}
-dfe %>% select(start=started_at,end=ended_at) %>%
-  pivot_longer(start:end, names_to="type",values_to="t") %>% arrange(t)
-```
-
-I want to build a counter to track riders, where each "start" increases the count, and each end "decrease" the count.
-
-Additionally, I will want my to `arrange` my rows using my time `t` column.
-
-```{r}
-dfe %>% select(start=started_at,end=ended_at) %>%
-  pivot_longer(start:end, names_to="type",values_to="t") %>% arrange(t) %>%
+dfriders = dfb %>%
+  pivot_longer(start_date:end_date, names_to="type",values_to="t") %>% arrange(t) %>%
   mutate(increment=case_when(
-   type=="start"~1,
-   type=="end" ~ -1
-  )) 
-```
-
-Now lets cummulative sum that column.
-
-```{r}
-dfe %>% select(start=started_at,end=ended_at) %>%
-  pivot_longer(start:end, names_to="type",values_to="t") %>% arrange(t) %>%
-  mutate(increment=case_when(
-   type=="start"~1,
-   type=="end" ~ -1
-  )) %>%
+   type=="start_date"~1,
+   type=="end_date" ~ -1)) %>%
   mutate(riders=cumsum(increment))
-```
-I think that is what I need.  I will visualize (using a step plot) to see if it makes sense.   I simply ... continue the pipe.
 
-```{r}
-dfe %>% select(start=started_at,end=ended_at) %>%
-  pivot_longer(start:end, names_to="type",values_to="t") %>% arrange(t) %>%
-  mutate(increment=case_when(
-   type=="start"~1,
-   type=="end" ~ -1
-  )) %>%
-  mutate(riders=cumsum(increment)) %>% 
-  ggplot(aes(t,riders)) + geom_step()
+# plotting the ridership vs time
+ggplot(dfriders, aes(t,riders)) + geom_step() 
 ```
 
-I note the quirk that one ride started on day three and didn't get returned until the fifth of August, but ... I am convinced by logic works.
-
-#### Analysis without sampling:
-
-Now ... let's examine all the data for August 3rd.  I simply need to drop in the dataframe for August 3rd *without* doing the steps that select a random sample, but *otherwise using the exact commands developed above.*
-
-For the visualization, I will limit to only 3 August, which is a bit tricky.
-
+Lets look at individual days to see how time of day effects ridership
 
 ```{r}
-dfb %>% filter(mday(started_at)==3) %>%
-  select(start=started_at,end=ended_at) %>%
-  pivot_longer(start:end, names_to="type",values_to="t") %>% arrange(t) %>%
-  mutate(increment=case_when(
-   type=="start"~1,
-   type=="end" ~ -1
-  )) %>%
-  mutate(riders=cumsum(increment)) %>% 
+aug07 <- ggplot(dfriders, aes(t,riders)) + geom_step() +
+  scale_x_datetime(limits=as_datetime(c("2018-08-07","2018-08-08"))) +
+  ggtitle("August 7th")
+
+aug08 <- ggplot(dfriders, aes(t,riders)) + geom_step() +
+  scale_x_datetime(limits=as_datetime(c("2018-08-08","2018-08-09"))) +
+  ggtitle("August 8th")
+
+aug09 <- ggplot(dfriders, aes(t,riders)) + geom_step() +
+  scale_x_datetime(limits=as_datetime(c("2018-08-09","2018-08-10"))) +
+  ggtitle("August 9th")
+
+aug10 <- ggplot(dfriders, aes(t,riders)) + geom_step() +
+  scale_x_datetime(limits=as_datetime(c("2018-08-10","2018-08-11"))) +
+  ggtitle("August 10th")
+
+grid.arrange(aug07, aug08, aug09, aug10, nrow = 2)
+```
+
+It seems as if there are 2 major peaks that occur each day. A possible reason for this could be people going to and from work. The first peak is around 8am-9am and the second peak is around 5pm-6pm.
+
+Lets look at the different days of the week as well to see if they differ in ridership.
+
+```{r}
+dfriders %>% filter(mday(t)<=7) %>% 
   ggplot(aes(t,riders)) + geom_step() +
-  scale_x_datetime(limits=as_datetime(   c("2020-08-03","2020-08-04")))
+  facet_wrap(~wday(t, label = TRUE), scales = "free_x", ncol = 7)
 ```
+In this week the ridership is higher on the weekend, especially on Saturday, compared to the weekdays. The weekend ridership has a higher maximum amount of riders but also there is almost no drop off throughout the middle of the day like the weekdays have.
 
-We could look at the whole dataset.  All we have to do is *not* do that filtering step ... and let the axis cover the whole range.
-
-
+Lets look to see how long of a duration most of the rides are.
 ```{r}
-dfb %>% 
-  select(start=started_at,end=ended_at) %>%
-  pivot_longer(start:end, names_to="type",values_to="t") %>% arrange(t) %>%
-  mutate(increment=case_when(
-   type=="start"~1,
-   type=="end" ~ -1
-  )) %>%
-  mutate(riders=cumsum(increment)) %>% 
-  ggplot(aes(t,riders)) + geom_step() 
+dfriders %>% filter(duration<150,duration>0) %>% 
+  ggplot(aes(x=duration)) + geom_histogram(binwidth = .5)
 ```
 
-I think this is interesting, but I think I can improve using faceting, to separate out for each day of the month.   I will facet by 7 columns so that days of the week are aligned.  For these facets, I use the option "free_x" as each facet is covering a different time range.
-
-It also turns out that the datset includes information from 1,2,3,4 September, which screws things up a bit, so ... I filter to only the month of August.
-
-
+Exploring the differences between the two rider types, 'Member' or 'Casual' and if they have a difference in ridership
 ```{r}
-dfb %>% 
-  filter(month(started_at)==8,month(ended_at)==8) %>%
-  select(start=started_at,end=ended_at) %>%
-  pivot_longer(start:end, names_to="type",values_to="t") %>% arrange(t) %>%
-  mutate(increment=case_when(
-   type=="start"~1,
-   type=="end" ~ -1
-  )) %>%
-  mutate(riders=cumsum(increment)) %>% 
-  ggplot(aes(t,riders)) + geom_step() +
-  facet_wrap(~mday(t),scales = "free_x",ncol = 7)
+dfriders %>% group_by(member_type) %>%
+  ggplot(aes(t,riders,color=member_type)) + geom_step() +
+  scale_x_datetime(limits=as_datetime(c("2018-08-07","2018-08-08")))
 ```
+There are almost no differences between the two member types when it comes to ridership.
 
-#### Separating electric and docked bikes
-
-
-To consider by type of bike, we will need "cumsum" to be working separately on "electric bikes" and "docked bikes".  Which means:
-
-* We have to include that variable in the dataset, and
-* We will need to group on that variable
-
-For this visualization, although I do the compuation for the whole month,
-I will show only the first 7 days of August.
-
-
+Finding out how many riders are there per hour time interval.
 ```{r}
-dfb %>% 
-  filter(month(started_at)==8,month(ended_at)==8) %>%
- select(rideable_type,start=started_at,end=ended_at) %>%
-  pivot_longer(start:end, names_to="type",values_to="t") %>% arrange(t) %>%
-  mutate(increment=case_when(
-   type=="start"~1,
-   type=="end" ~ -1
-  )) %>%
-  group_by(rideable_type) %>%
-  mutate(riders=cumsum(increment)) %>% filter(mday(t)<=7) %>%
-    ggplot(aes(t,riders,color=rideable_type)) + geom_step() +
-  facet_wrap(~mday(t),scales = "free_x",ncol = 7)
+dfriders %>% group_by(wday(t, label = TRUE),hour(t)) %>%
+  summarise(mean_riders = mean(riders),
+            max_riders = max(riders))
 ```
 
+## Reflection
 
+After looking at all of the data and exploring it we decided that the best variables that we can use to find a relationship are day_of_week and hour_of_day.
 
+This is an attempt at making a regression model:
 ```{r}
-dfr = dfb %>% 
-  filter(month(started_at)==8,month(ended_at)==8) %>%
- select(rideable_type,start=started_at,end=ended_at) %>%
-  pivot_longer(start:end, names_to="type",values_to="t") %>% arrange(t) %>%
-  mutate(increment=case_when(
-   type=="start"~1,
-   type=="end" ~ -1
-  )) %>%
-  group_by(rideable_type) %>%
-  mutate(riders=cumsum(increment)) %>% filter(mday(t)<=7)
+model = lm(dfriders$riders ~ dfriders$hour_of_day + dfriders$day_of_week)
+summary(model)
 ```
 
-
-```{r}
-dfr1 = dfb %>% 
-  filter(month(started_at)==8,month(ended_at)==8) %>%
- select(rideable_type,start=started_at,end=ended_at) %>%
-  pivot_longer(start:end, names_to="type",values_to="t") %>% arrange(t) %>%
-  mutate(increment=case_when(
-   type=="start"~1,
-   type=="end" ~ -1
-  )) %>%
-  mutate(riders=cumsum(increment)) %>% filter(mday(t)<=7)
-```
-
-How many riders (max) in any hour time interval?
-
-```{r}
-dfr1 %>% group_by(wday(t, label = TRUE),hour(t)) %>%
-  summarise(mean_riders = mean(riders))
-```
-
-
-
+Another thing that I thought could be used for this analysis was distance from downtown but I did not have the time to explore that.
