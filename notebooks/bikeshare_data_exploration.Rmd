@@ -1,0 +1,140 @@
+---
+title: "Bikeshare Data Exploration"
+author: "Louis Keith, Peter-John King, Cameron Mitchell"
+date: "11/13/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The goal of this analysis is to see if I can merge bikeshare data with spatial data.
+
+## Prepare workspace:
+
+#### Load packages
+
+We will work primarily within the context of the tidyverse set of packages, with a few additional packages supporting exploratory analysis. We have included the `lubridate` package, as we will want to do some work with dates.
+
+```{r}
+library(sf)
+library(leaflet)
+library(tmap)
+library(tmaptools)
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(skimr)
+library(summarytools)
+library(lubridate)
+library(tidygeocoder)
+```
+
+I will also set a default theme for my ggplots.
+
+```{r}
+theme_set(theme_minimal())
+```
+
+
+## Data
+
+The orginal source of the data was the csv files 
+
+https://s3.amazonaws.com/capitalbikeshare-data/202008-capitalbikeshare-tripdata.zip
+https://s3.amazonaws.com/capitalbikeshare-data/201808-capitalbikeshare-tripdata.zip
+
+
+### Read the  bike data
+
+I read in the original .cvs file for both the August 2020 and August 2018 bikeshare dataset
+
+```{r}
+
+base_path = dirname(getwd()) # base path for project
+
+path_2020 = file.path(base_path, "data_raw/202008-capitalbikeshare-tripdata.csv")
+
+df_2020=read_csv(path_2020) %>% 
+  clean_names() %>%
+  mutate(duration=as.numeric((ended_at-started_at)/60),
+         hour_of_day=hour(started_at),
+         day_of_week=wday(started_at,label = T))
+
+path_2018 = file.path(base_path, "data_raw/201808-capitalbikeshare-tripdata.csv")
+df_2018=read_csv(path_2018) %>% 
+  clean_names()
+```
+
+
+#### Formatting bike data
+
+Upon comparing the two datasets we recognize that there are differences in the columns between the two. One important discrepency is the lack of longitude and latitude positions within the 2018 dataset. We attempted to use the `tidygeocoder` package to get the latitudes and longitudes however attempting that produced N/As owing to the fact that the addresses were not formatted appropriately for the package. 
+
+As such we decided to use the 2020 dataset to get a list of all the addresses and their corresponding latitudes and longitudes. Afterwards a left join was used on the 2018 data to map the addresses from 2020 to 2018. We decided to use the `start_station_name` and `start_station` for `df_2020` and `df_2018` respectively because the station ids in both had different numbering and as such were not useful for the maping
+
+```{r}
+df_2020_start_coord=df_2020 %>% select(start_station_name, start_lat, start_lng) %>% 
+  drop_na() %>% rename(address=start_station_name, lat=start_lat, lng=start_lng)
+df_2020_end_coord=df_2020 %>% select(end_station_name, end_lat, end_lng) %>%
+  drop_na() %>% rename(address=end_station_name, lat=end_lat, lng=end_lng)
+
+df_2020_coords = rbind(df_2020_start_coord, df_2020_end_coord) %>% distinct(address, .keep_all=TRUE)
+
+df_2018a = df_2018 %>% left_join(df_2020_coords, by=c("start_station"="address")) %>%
+  rename(start_lat=lat, start_lng=lng) %>% left_join(df_2020_coords, by=c("end_station"="address")) %>%
+  rename(end_lat=lat, end_lng=lng) %>% drop_na(start_lat, start_lng, end_lat, end_lng)
+
+```
+
+
+### Read shapefile data
+
+
+```{r}
+
+shp_path = file.path(base_path, "data_raw/tl_2019_11_tract/tl_2019_11_tract.shp")
+census_sf =  st_read(shp_path) %>% clean_names()
+```
+
+
+```{r}
+tmap_mode("view")
+tm_shape(census_sf)+tm_polygons(alpha=.3)
+```
+
+
+### Plotting both datasets
+
+Create an sf object from df_2018a.
+
+
+```{r}
+bikes1_sf = st_as_sf(df_2018a, coords = c("start_lng", "start_lat"), 
+                 crs = 4269, agr = "constant")
+dfbu=df_2018a %>% mutate(rounded=round(start_lat,7)) %>%  distinct(rounded,.keep_all=T) %>% drop_na()
+bikes_sf = st_as_sf(dfbu , coords = c("start_lng", "start_lat"), 
+                 crs = 4269, agr = "constant")
+```
+
+```{r}
+tm_shape(bikes_sf)+tm_dots(size=.01,alpha=.8)+
+  tm_shape(census_sf)+tm_polygons(alpha=.3)+
+  tm_basemap( leaflet::providers$OpenStreetMap )
+```
+
+
+
+### Can I do a spatial join
+
+
+Leftjoin of bikes1 with census tract
+
+```{r}
+dfj=st_join(bikes1_sf,census_sf,join=st_within)
+dfj2 =st_join(census_sf,bikes_sf,join=st_contains) %>% count(name) 
+dfj2 %>% tm_shape()  +tm_polygons("n",alpha=.6)+
+  tm_basemap( leaflet::providers$OpenStreetMap )
+```
+
