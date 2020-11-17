@@ -1,0 +1,75 @@
+---
+title: "DC Bike Share Demographic and Income levels"
+output: html_notebook
+author: "Joe Tudor, Richard Pandel, Demetrius Boone"
+date: "Nov-17-2020"
+---
+
+The purpose of this document is to provide descriptive analysis for demographic and income data in the D.C. area as well as help us propose a predictor that comes form the joied datasets. 
+
+
+Loading packages we may use
+
+```{r}
+library(lubridate)
+library(sf)
+library(leaflet)
+library(tmap)
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(skimr)
+library(summarytools)
+library(ggplot2)
+```
+
+
+First We load the census datasets one for income and one for race demographic
+We then clean the names of the variables in the datasets
+
+```{r}
+incomefile <- read_csv("../data_raw/DCincome.csv") %>% clean_names()
+demofile <- read_csv("../data_raw/DCdemographics.csv") %>% clean_names()
+```
+Only selecting the columns that we need and renaming them for clarity
+```{r}
+demofile2 <- demofile %>% select(namelsad=geographic_area_name, estimate_total, white=estimate_total_population_of_one_race_white, african_american=estimate_total_population_of_one_race_black_or_african_american, american_indian_alaska_native=estimate_total_population_of_one_race_american_indian_and_alaska_native, asian=estimate_total_population_of_one_race_asian_alone, hawaiin_pacific_islander=estimate_total_population_of_one_race_native_hawaiian_and_other_pacific_islander, other=estimate_total_population_of_one_race_some_other_race)
+```
+Creating a new percent variable for each ethnicity that represents the percent of a particular ethnicity per census tract.
+New dataframe demofile3 contains percentages of ethnicity over total population per each census tract.
+```{r}
+demofile3 <- demofile2 %>% mutate(perce_white=white/estimate_total,perce_african_american=african_american/estimate_total,perce_american_indian_alaska_native=american_indian_alaska_native/estimate_total,perce_asian=asian/estimate_total,perce_hawaiin_pacific_islander=hawaiin_pacific_islander/estimate_total,perce_other=other/estimate_total)
+
+demofile3 = demofile3 %>% select(namelsad,estimate_total,perce_white,perce_african_american,perce_american_indian_alaska_native,perce_asian,perce_hawaiin_pacific_islander,perce_other)
+```
+Showing some summary statistics and plotting histograms for each ethnicity per census tract.
+Each histogram represents the amount of census tracts with the ranges of percent.
+```{r}
+summary(demofile3)
+demofile3 %>% ggplot(aes(x=perce_white)) +
+  geom_histogram()
+demofile3 %>% ggplot(aes(x=perce_african_american)) +
+  geom_histogram()
+demofile3 %>% ggplot(aes(x=perce_american_indian_alaska_native)) +
+  geom_histogram()
+demofile3 %>% ggplot(aes(x=perce_asian)) +
+  geom_histogram()
+demofile3 %>% ggplot(aes(x=perce_hawaiin_pacific_islander)) +
+  geom_histogram()
+demofile3 %>% ggplot(aes(x=perce_other)) +
+  geom_histogram()
+```
+
+**Mapping**
+Read shapefile data
+
+```{r}
+census_sf =  st_read("../data_raw/tl_2019_11_tract/tl_2019_11_tract.shp") %>% clean_names()
+```
+
+```{r}
+tmap_mode("view")
+tm_shape(census_sf)+tm_polygons(alpha=.3)
+```
+*Then you should be able to cross reference the data by tract on the map. We tried to plot the demographic and income data on the map for each census tract but could not figure out how.*
+

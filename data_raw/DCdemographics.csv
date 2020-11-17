@@ -1,253 +1,180 @@
-GEO_ID,POPGROUP,POPGROUP_LABEL,NAME,B01003_001E,B01003_001M
-id,Race/Ethnic Group,Population Groups,Geographic Area Name,Estimate!!Total,Margin of Error!!Total
-1400000US11001000901,12,Asian alone (400-499),"Census Tract 9.01, District of Columbia, District of Columbia",405,142
-1400000US11001002201,4,Black or African American alone,"Census Tract 22.01, District of Columbia, District of Columbia",2668,292
-1400000US11001007200,2,White alone,"Census Tract 72, District of Columbia, District of Columbia",3183,517
-1400000US11001001301,2,White alone,"Census Tract 13.01, District of Columbia, District of Columbia",3152,367
-1400000US11001007409,4,Black or African American alone,"Census Tract 74.09, District of Columbia, District of Columbia",3731,386
-1400000US11001009907,4,Black or African American alone,"Census Tract 99.07, District of Columbia, District of Columbia",2804,301
-1400000US11001002001,2,White alone,"Census Tract 20.01, District of Columbia, District of Columbia",843,188
-1400000US11001006801,2,White alone,"Census Tract 68.01, District of Columbia, District of Columbia",755,120
-1400000US11001000801,2,White alone,"Census Tract 8.01, District of Columbia, District of Columbia",5215,527
-1400000US11001002301,4,Black or African American alone,"Census Tract 23.01, District of Columbia, District of Columbia",1782,260
-1400000US11001002400,2,White alone,"Census Tract 24, District of Columbia, District of Columbia",1034,235
-1400000US11001004600,4,Black or African American alone,"Census Tract 46, District of Columbia, District of Columbia",1581,352
-1400000US11001002600,4,Black or African American alone,"Census Tract 26, District of Columbia, District of Columbia",812,170
-1400000US11001002802,4,Black or African American alone,"Census Tract 28.02, District of Columbia, District of Columbia",1006,163
-1400000US11001007404,4,Black or African American alone,"Census Tract 74.04, District of Columbia, District of Columbia",3728,464
-1400000US11001007301,4,Black or African American alone,"Census Tract 73.01, District of Columbia, District of Columbia",974,339
-1400000US11001008001,2,White alone,"Census Tract 80.01, District of Columbia, District of Columbia",1752,227
-1400000US11001008002,2,White alone,"Census Tract 80.02, District of Columbia, District of Columbia",2213,212
-1400000US11001007403,4,Black or African American alone,"Census Tract 74.03, District of Columbia, District of Columbia",3426,383
-1400000US11001009201,2,White alone,"Census Tract 92.01, District of Columbia, District of Columbia",806,162
-1400000US11001009503,2,White alone,"Census Tract 95.03, District of Columbia, District of Columbia",782,286
-1400000US11001004802,4,Black or African American alone,"Census Tract 48.02, District of Columbia, District of Columbia",1731,329
-1400000US11001009906,4,Black or African American alone,"Census Tract 99.06, District of Columbia, District of Columbia",1460,209
-1400000US11001010500,2,White alone,"Census Tract 105, District of Columbia, District of Columbia",1496,232
-1400000US11001004202,2,White alone,"Census Tract 42.02, District of Columbia, District of Columbia",2145,210
-1400000US11001002202,4,Black or African American alone,"Census Tract 22.02, District of Columbia, District of Columbia",2555,484
-1400000US11001005600,12,Asian alone (400-499),"Census Tract 56, District of Columbia, District of Columbia",832,357
-1400000US11001002002,4,Black or African American alone,"Census Tract 20.02, District of Columbia, District of Columbia",2179,479
-1400000US11001009903,4,Black or African American alone,"Census Tract 99.03, District of Columbia, District of Columbia",1722,231
-1400000US11001000100,2,White alone,"Census Tract 1, District of Columbia, District of Columbia",4784,383
-1400000US11001005800,2,White alone,"Census Tract 58, District of Columbia, District of Columbia",1858,188
-1400000US11001007807,4,Black or African American alone,"Census Tract 78.07, District of Columbia, District of Columbia",2249,282
-1400000US11001005002,2,White alone,"Census Tract 50.02, District of Columbia, District of Columbia",3369,445
-1400000US11001005900,4,Black or African American alone,"Census Tract 59, District of Columbia, District of Columbia",543,149
-1400000US11001004400,2,White alone,"Census Tract 44, District of Columbia, District of Columbia",4089,356
-1400000US11001007502,4,Black or African American alone,"Census Tract 75.02, District of Columbia, District of Columbia",5276,523
-1400000US11001009601,4,Black or African American alone,"Census Tract 96.01, District of Columbia, District of Columbia",2168,280
-1400000US11001004801,4,Black or African American alone,"Census Tract 48.01, District of Columbia, District of Columbia",1055,280
-1400000US11001003500,2,White alone,"Census Tract 35, District of Columbia, District of Columbia",1157,396
-1400000US11001004002,2,White alone,"Census Tract 40.02, District of Columbia, District of Columbia",2570,270
-1400000US11001004802,2,White alone,"Census Tract 48.02, District of Columbia, District of Columbia",1145,290
-1400000US11001009201,4,Black or African American alone,"Census Tract 92.01, District of Columbia, District of Columbia",1200,210
-1400000US11001003200,4,Black or African American alone,"Census Tract 32, District of Columbia, District of Columbia",2572,433
-1400000US11001004201,2,White alone,"Census Tract 42.01, District of Columbia, District of Columbia",2966,286
-1400000US11001009807,4,Black or African American alone,"Census Tract 98.07, District of Columbia, District of Columbia",2946,364
-1400000US11001002302,2,White alone,"Census Tract 23.02, District of Columbia, District of Columbia",669,215
-1400000US11001004001,2,White alone,"Census Tract 40.01, District of Columbia, District of Columbia",3498,501
-1400000US11001009503,4,Black or African American alone,"Census Tract 95.03, District of Columbia, District of Columbia",2478,316
-1400000US11001002502,4,Black or African American alone,"Census Tract 25.02, District of Columbia, District of Columbia",2820,804
-1400000US11001001001,2,White alone,"Census Tract 10.01, District of Columbia, District of Columbia",6587,473
-1400000US11001003900,2,White alone,"Census Tract 39, District of Columbia, District of Columbia",3493,311
-1400000US11001007401,4,Black or African American alone,"Census Tract 74.01, District of Columbia, District of Columbia",2438,200
-1400000US11001008002,4,Black or African American alone,"Census Tract 80.02, District of Columbia, District of Columbia",1139,191
-1400000US11001000802,2,White alone,"Census Tract 8.02, District of Columbia, District of Columbia",2350,302
-1400000US11001002102,2,White alone,"Census Tract 21.02, District of Columbia, District of Columbia",551,137
-1400000US11001003100,4,Black or African American alone,"Census Tract 31, District of Columbia, District of Columbia",951,169
-1400000US11001004701,4,Black or African American alone,"Census Tract 47.01, District of Columbia, District of Columbia",3107,616
-1400000US11001009204,4,Black or African American alone,"Census Tract 92.04, District of Columbia, District of Columbia",2190,334
-1400000US11001002501,4,Black or African American alone,"Census Tract 25.01, District of Columbia, District of Columbia",1447,302
-1400000US11001007604,4,Black or African American alone,"Census Tract 76.04, District of Columbia, District of Columbia",3515,368
-1400000US11001007804,4,Black or African American alone,"Census Tract 78.04, District of Columbia, District of Columbia",3050,553
-1400000US11001008402,4,Black or African American alone,"Census Tract 84.02, District of Columbia, District of Columbia",882,307
-1400000US11001008802,2,White alone,"Census Tract 88.02, District of Columbia, District of Columbia",791,168
-1400000US11001009000,4,Black or African American alone,"Census Tract 90, District of Columbia, District of Columbia",2836,293
-1400000US11001002301,2,White alone,"Census Tract 23.01, District of Columbia, District of Columbia",780,164
-1400000US11001007406,4,Black or African American alone,"Census Tract 74.06, District of Columbia, District of Columbia",3010,472
-1400000US11001009400,2,White alone,"Census Tract 94, District of Columbia, District of Columbia",927,263
-1400000US11001002001,4,Black or African American alone,"Census Tract 20.01, District of Columbia, District of Columbia",1239,230
-1400000US11001003700,4,Black or African American alone,"Census Tract 37, District of Columbia, District of Columbia",2215,527
-1400000US11001004300,2,White alone,"Census Tract 43, District of Columbia, District of Columbia",2377,364
-1400000US11001008803,4,Black or African American alone,"Census Tract 88.03, District of Columbia, District of Columbia",1300,348
-1400000US11001010400,4,Black or African American alone,"Census Tract 104, District of Columbia, District of Columbia",4016,597
-1400000US11001009700,4,Black or African American alone,"Census Tract 97, District of Columbia, District of Columbia",3321,419
-1400000US11001010900,4,Black or African American alone,"Census Tract 109, District of Columbia, District of Columbia",4123,898
-1400000US11001010800,12,Asian alone (400-499),"Census Tract 108, District of Columbia, District of Columbia",850,202
-1400000US11001003400,4,Black or African American alone,"Census Tract 34, District of Columbia, District of Columbia",3071,510
-1400000US11001008200,2,White alone,"Census Tract 82, District of Columbia, District of Columbia",2534,268
-1400000US11001011000,2,White alone,"Census Tract 110, District of Columbia, District of Columbia",2324,365
-1400000US11001006900,2,White alone,"Census Tract 69, District of Columbia, District of Columbia",1543,212
-1400000US11001001500,2,White alone,"Census Tract 15, District of Columbia, District of Columbia",5247,379
-1400000US11001003200,2,White alone,"Census Tract 32, District of Columbia, District of Columbia",1821,431
-1400000US11001002702,4,Black or African American alone,"Census Tract 27.02, District of Columbia, District of Columbia",1297,452
-1400000US11001002900,70,Some other race alone,"Census Tract 29, District of Columbia, District of Columbia",689,335
-1400000US11001009203,2,White alone,"Census Tract 92.03, District of Columbia, District of Columbia",517,164
-1400000US11001000400,2,White alone,"Census Tract 4, District of Columbia, District of Columbia",1265,131
-1400000US11001007601,4,Black or African American alone,"Census Tract 76.01, District of Columbia, District of Columbia",4027,550
-1400000US11001007708,4,Black or African American alone,"Census Tract 77.08, District of Columbia, District of Columbia",3070,319
-1400000US11001010200,2,White alone,"Census Tract 102, District of Columbia, District of Columbia",1173,171
-1400000US11001002502,2,White alone,"Census Tract 25.02, District of Columbia, District of Columbia",1691,588
-1400000US11001002802,2,White alone,"Census Tract 28.02, District of Columbia, District of Columbia",2222,442
-1400000US11001002801,4,Black or African American alone,"Census Tract 28.01, District of Columbia, District of Columbia",1701,333
-1400000US11001010600,4,Black or African American alone,"Census Tract 106, District of Columbia, District of Columbia",1576,401
-1400000US11001003302,4,Black or African American alone,"Census Tract 33.02, District of Columbia, District of Columbia",1092,197
-1400000US11001006801,4,Black or African American alone,"Census Tract 68.01, District of Columbia, District of Columbia",1144,183
-1400000US11001002900,4,Black or African American alone,"Census Tract 29, District of Columbia, District of Columbia",1247,377
-1400000US11001009803,4,Black or African American alone,"Census Tract 98.03, District of Columbia, District of Columbia",2713,375
-1400000US11001001902,4,Black or African American alone,"Census Tract 19.02, District of Columbia, District of Columbia",1696,235
-1400000US11001003301,2,White alone,"Census Tract 33.01, District of Columbia, District of Columbia",1781,262
-1400000US11001000202,2,White alone,"Census Tract 2.02, District of Columbia, District of Columbia",4082,644
-1400000US11001001302,2,White alone,"Census Tract 13.02, District of Columbia, District of Columbia",5702,605
-1400000US11001007903,4,Black or African American alone,"Census Tract 79.03, District of Columbia, District of Columbia",1370,242
-1400000US11001009901,4,Black or African American alone,"Census Tract 99.01, District of Columbia, District of Columbia",2410,250
-1400000US11001002501,2,White alone,"Census Tract 25.01, District of Columbia, District of Columbia",982,249
-1400000US11001006600,2,White alone,"Census Tract 66, District of Columbia, District of Columbia",1688,201
-1400000US11001008903,4,Black or African American alone,"Census Tract 89.03, District of Columbia, District of Columbia",2959,478
-1400000US11001010600,2,White alone,"Census Tract 106, District of Columbia, District of Columbia",3617,311
-1400000US11001002801,2,White alone,"Census Tract 28.01, District of Columbia, District of Columbia",1193,320
-1400000US11001009804,4,Black or African American alone,"Census Tract 98.04, District of Columbia, District of Columbia",2455,218
-1400000US11001003600,4,Black or African American alone,"Census Tract 36, District of Columbia, District of Columbia",1735,359
-1400000US11001006802,2,White alone,"Census Tract 68.02, District of Columbia, District of Columbia",1296,186
-1400000US11001007901,4,Black or African American alone,"Census Tract 79.01, District of Columbia, District of Columbia",3029,453
-1400000US11001010300,2,White alone,"Census Tract 103, District of Columbia, District of Columbia",766,165
-1400000US11001009509,4,Black or African American alone,"Census Tract 95.09, District of Columbia, District of Columbia",2907,335
-1400000US11001007304,4,Black or African American alone,"Census Tract 73.04, District of Columbia, District of Columbia",3336,487
-1400000US11001000901,2,White alone,"Census Tract 9.01, District of Columbia, District of Columbia",6400,847
-1400000US11001002102,4,Black or African American alone,"Census Tract 21.02, District of Columbia, District of Columbia",3568,391
-1400000US11001005800,12,Asian alone (400-499),"Census Tract 58, District of Columbia, District of Columbia",633,160
-1400000US11001008702,4,Black or African American alone,"Census Tract 87.02, District of Columbia, District of Columbia",1495,260
-1400000US11001009301,2,White alone,"Census Tract 93.01, District of Columbia, District of Columbia",1229,233
-1400000US11001009400,4,Black or African American alone,"Census Tract 94, District of Columbia, District of Columbia",3770,506
-1400000US11001008302,2,White alone,"Census Tract 83.02, District of Columbia, District of Columbia",1775,131
-1400000US11001005900,2,White alone,"Census Tract 59, District of Columbia, District of Columbia",1749,237
-1400000US11001006700,2,White alone,"Census Tract 67, District of Columbia, District of Columbia",3382,225
-1400000US11001008803,2,White alone,"Census Tract 88.03, District of Columbia, District of Columbia",649,171
-1400000US11001001600,2,White alone,"Census Tract 16, District of Columbia, District of Columbia",1114,158
-1400000US11001007100,2,White alone,"Census Tract 71, District of Columbia, District of Columbia",1177,203
-1400000US11001008001,4,Black or African American alone,"Census Tract 80.01, District of Columbia, District of Columbia",1075,288
-1400000US11001008301,2,White alone,"Census Tract 83.01, District of Columbia, District of Columbia",1865,224
-1400000US11001002701,4,Black or African American alone,"Census Tract 27.01, District of Columbia, District of Columbia",757,213
-1400000US11001003100,2,White alone,"Census Tract 31, District of Columbia, District of Columbia",1229,323
-1400000US11001003301,4,Black or African American alone,"Census Tract 33.01, District of Columbia, District of Columbia",1369,300
-1400000US11001001901,4,Black or African American alone,"Census Tract 19.01, District of Columbia, District of Columbia",2906,359
-1400000US11001009801,4,Black or African American alone,"Census Tract 98.01, District of Columbia, District of Columbia",1980,273
-1400000US11001000600,2,White alone,"Census Tract 6, District of Columbia, District of Columbia",3824,394
-1400000US11001005001,2,White alone,"Census Tract 50.01, District of Columbia, District of Columbia",1492,216
-1400000US11001007903,2,White alone,"Census Tract 79.03, District of Columbia, District of Columbia",344,101
-1400000US11001009501,4,Black or African American alone,"Census Tract 95.01, District of Columbia, District of Columbia",3806,447
-1400000US11001000201,12,Asian alone (400-499),"Census Tract 2.01, District of Columbia, District of Columbia",508,177
-1400000US11001007200,4,Black or African American alone,"Census Tract 72, District of Columbia, District of Columbia",1047,258
-1400000US11001007806,4,Black or African American alone,"Census Tract 78.06, District of Columbia, District of Columbia",1991,283
-1400000US11001009810,4,Black or African American alone,"Census Tract 98.10, District of Columbia, District of Columbia",2605,306
-1400000US11001001804,2,White alone,"Census Tract 18.04, District of Columbia, District of Columbia",970,623
-1400000US11001002900,2,White alone,"Census Tract 29, District of Columbia, District of Columbia",2224,296
-1400000US11001008302,4,Black or African American alone,"Census Tract 83.02, District of Columbia, District of Columbia",445,128
-1400000US11001009802,4,Black or African American alone,"Census Tract 98.02, District of Columbia, District of Columbia",1643,221
-1400000US11001000201,2,White alone,"Census Tract 2.01, District of Columbia, District of Columbia",2653,403
-1400000US11001007504,4,Black or African American alone,"Census Tract 75.04, District of Columbia, District of Columbia",2765,341
-1400000US11001008410,4,Black or African American alone,"Census Tract 84.10, District of Columbia, District of Columbia",618,125
-1400000US11001011100,2,White alone,"Census Tract 111, District of Columbia, District of Columbia",660,200
-1400000US11001009203,4,Black or African American alone,"Census Tract 92.03, District of Columbia, District of Columbia",1912,394
-1400000US11001000502,2,White alone,"Census Tract 5.02, District of Columbia, District of Columbia",2560,248
-1400000US11001007809,4,Black or African American alone,"Census Tract 78.09, District of Columbia, District of Columbia",2629,409
-1400000US11001008804,4,Black or African American alone,"Census Tract 88.04, District of Columbia, District of Columbia",1869,378
-1400000US11001005500,2,White alone,"Census Tract 55, District of Columbia, District of Columbia",4985,635
-1400000US11001007000,2,White alone,"Census Tract 70, District of Columbia, District of Columbia",2104,305
-1400000US11001007503,4,Black or African American alone,"Census Tract 75.03, District of Columbia, District of Columbia",2623,306
-1400000US11001006500,2,White alone,"Census Tract 65, District of Columbia, District of Columbia",2144,302
-1400000US11001004702,4,Black or African American alone,"Census Tract 47.02, District of Columbia, District of Columbia",958,231
-1400000US11001007408,4,Black or African American alone,"Census Tract 74.08, District of Columbia, District of Columbia",3305,454
-1400000US11001001600,4,Black or African American alone,"Census Tract 16, District of Columbia, District of Columbia",2881,324
-1400000US11001007803,4,Black or African American alone,"Census Tract 78.03, District of Columbia, District of Columbia",2967,382
-1400000US11001003400,2,White alone,"Census Tract 34, District of Columbia, District of Columbia",1331,315
-1400000US11001004701,2,White alone,"Census Tract 47.01, District of Columbia, District of Columbia",801,224
-1400000US11001002400,4,Black or African American alone,"Census Tract 24, District of Columbia, District of Columbia",2296,250
-1400000US11001000501,2,White alone,"Census Tract 5.01, District of Columbia, District of Columbia",2855,369
-1400000US11001004600,2,White alone,"Census Tract 46, District of Columbia, District of Columbia",1014,255
-1400000US11001007407,4,Black or African American alone,"Census Tract 74.07, District of Columbia, District of Columbia",2662,310
-1400000US11001010100,2,White alone,"Census Tract 101, District of Columbia, District of Columbia",1769,237
-1400000US11001001002,2,White alone,"Census Tract 10.02, District of Columbia, District of Columbia",2780,483
-1400000US11001001100,2,White alone,"Census Tract 11, District of Columbia, District of Columbia",3820,362
-1400000US11001008410,2,White alone,"Census Tract 84.10, District of Columbia, District of Columbia",675,110
-1400000US11001009302,4,Black or African American alone,"Census Tract 93.02, District of Columbia, District of Columbia",617,113
-1400000US11001003700,2,White alone,"Census Tract 37, District of Columbia, District of Columbia",2723,485
-1400000US11001007703,4,Black or African American alone,"Census Tract 77.03, District of Columbia, District of Columbia",5211,792
-1400000US11001009904,4,Black or African American alone,"Census Tract 99.04, District of Columbia, District of Columbia",2282,328
-1400000US11001010300,4,Black or African American alone,"Census Tract 103, District of Columbia, District of Columbia",2036,354
-1400000US11001006802,4,Black or African American alone,"Census Tract 68.02, District of Columbia, District of Columbia",841,171
-1400000US11001010800,4,Black or African American alone,"Census Tract 108, District of Columbia, District of Columbia",711,227
-1400000US11001006400,4,Black or African American alone,"Census Tract 64, District of Columbia, District of Columbia",1849,294
-1400000US11001001500,4,Black or African American alone,"Census Tract 15, District of Columbia, District of Columbia",697,392
-1400000US11001004901,4,Black or African American alone,"Census Tract 49.01, District of Columbia, District of Columbia",1074,229
-1400000US11001010800,2,White alone,"Census Tract 108, District of Columbia, District of Columbia",4361,796
-1400000US11001001401,2,White alone,"Census Tract 14.01, District of Columbia, District of Columbia",2740,250
-1400000US11001002302,4,Black or African American alone,"Census Tract 23.02, District of Columbia, District of Columbia",813,200
-1400000US11001003600,2,White alone,"Census Tract 36, District of Columbia, District of Columbia",2719,529
-1400000US11001001200,2,White alone,"Census Tract 12, District of Columbia, District of Columbia",3967,493
-1400000US11001003500,4,Black or African American alone,"Census Tract 35, District of Columbia, District of Columbia",4043,494
-1400000US11001004902,2,White alone,"Census Tract 49.02, District of Columbia, District of Columbia",1468,229
-1400000US11001007709,4,Black or African American alone,"Census Tract 77.09, District of Columbia, District of Columbia",2001,260
-1400000US11001008402,2,White alone,"Census Tract 84.02, District of Columbia, District of Columbia",1079,235
-1400000US11001009902,4,Black or African American alone,"Census Tract 99.02, District of Columbia, District of Columbia",2679,308
-1400000US11001004300,4,Black or African American alone,"Census Tract 43, District of Columbia, District of Columbia",992,169
-1400000US11001005002,4,Black or African American alone,"Census Tract 50.02, District of Columbia, District of Columbia",1207,299
-1400000US11001000701,2,White alone,"Census Tract 7.01, District of Columbia, District of Columbia",4030,459
-1400000US11001000702,2,White alone,"Census Tract 7.02, District of Columbia, District of Columbia",2779,413
-1400000US11001010700,2,White alone,"Census Tract 107, District of Columbia, District of Columbia",1382,184
-1400000US11001001804,4,Black or African American alone,"Census Tract 18.04, District of Columbia, District of Columbia",3607,504
-1400000US11001002002,2,White alone,"Census Tract 20.02, District of Columbia, District of Columbia",1014,339
-1400000US11001007707,4,Black or African American alone,"Census Tract 77.07, District of Columbia, District of Columbia",4402,539
-1400000US11001008802,4,Black or African American alone,"Census Tract 88.02, District of Columbia, District of Columbia",3501,462
-1400000US11001002101,4,Black or African American alone,"Census Tract 21.01, District of Columbia, District of Columbia",3870,713
-1400000US11001009508,4,Black or African American alone,"Census Tract 95.08, District of Columbia, District of Columbia",3028,394
-1400000US11001004400,4,Black or African American alone,"Census Tract 44, District of Columbia, District of Columbia",935,364
-1400000US11001009603,4,Black or African American alone,"Census Tract 96.03, District of Columbia, District of Columbia",2785,490
-1400000US11001002702,2,White alone,"Census Tract 27.02, District of Columbia, District of Columbia",4233,566
-1400000US11001007100,4,Black or African American alone,"Census Tract 71, District of Columbia, District of Columbia",1728,400
-1400000US11001002600,2,White alone,"Census Tract 26, District of Columbia, District of Columbia",1327,188
-1400000US11001007603,4,Black or African American alone,"Census Tract 76.03, District of Columbia, District of Columbia",3346,477
-1400000US11001004901,2,White alone,"Census Tract 49.01, District of Columbia, District of Columbia",1125,219
-1400000US11001008100,2,White alone,"Census Tract 81, District of Columbia, District of Columbia",2613,206
-1400000US11001009301,4,Black or African American alone,"Census Tract 93.01, District of Columbia, District of Columbia",1681,362
-1400000US11001001702,4,Black or African American alone,"Census Tract 17.02, District of Columbia, District of Columbia",1495,191
-1400000US11001004100,2,White alone,"Census Tract 41, District of Columbia, District of Columbia",2283,244
-1400000US11001004702,2,White alone,"Census Tract 47.02, District of Columbia, District of Columbia",1383,157
-1400000US11001005301,2,White alone,"Census Tract 53.01, District of Columbia, District of Columbia",4053,289
-1400000US11001000300,2,White alone,"Census Tract 3, District of Columbia, District of Columbia",5149,441
-1400000US11001003000,2,White alone,"Census Tract 30, District of Columbia, District of Columbia",1602,291
-1400000US11001007901,2,White alone,"Census Tract 79.01, District of Columbia, District of Columbia",774,125
-1400000US11001009504,4,Black or African American alone,"Census Tract 95.04, District of Columbia, District of Columbia",2052,345
-1400000US11001009602,4,Black or African American alone,"Census Tract 96.02, District of Columbia, District of Columbia",3314,451
-1400000US11001009604,4,Black or African American alone,"Census Tract 96.04, District of Columbia, District of Columbia",2024,206
-1400000US11001008904,4,Black or African American alone,"Census Tract 89.04, District of Columbia, District of Columbia",2411,337
-1400000US11001009811,4,Black or African American alone,"Census Tract 98.11, District of Columbia, District of Columbia",4993,498
-1400000US11001006804,4,Black or African American alone,"Census Tract 68.04, District of Columbia, District of Columbia",2706,250
-1400000US11001009102,4,Black or African American alone,"Census Tract 91.02, District of Columbia, District of Columbia",4653,513
-1400000US11001005600,2,White alone,"Census Tract 56, District of Columbia, District of Columbia",5286,768
-1400000US11001009504,2,White alone,"Census Tract 95.04, District of Columbia, District of Columbia",709,208
-1400000US11001003000,4,Black or African American alone,"Census Tract 30, District of Columbia, District of Columbia",1657,352
-1400000US11001003800,2,White alone,"Census Tract 38, District of Columbia, District of Columbia",3484,530
-1400000US11001007301,2,White alone,"Census Tract 73.01, District of Columbia, District of Columbia",2674,386
-1400000US11001009505,4,Black or African American alone,"Census Tract 95.05, District of Columbia, District of Columbia",2114,319
-1400000US11001007605,4,Black or African American alone,"Census Tract 76.05, District of Columbia, District of Columbia",3221,366
-1400000US11001001402,2,White alone,"Census Tract 14.02, District of Columbia, District of Columbia",2414,221
-1400000US11001005201,2,White alone,"Census Tract 52.01, District of Columbia, District of Columbia",4884,493
-1400000US11001011100,4,Black or African American alone,"Census Tract 111, District of Columbia, District of Columbia",4737,509
-1400000US11001007808,4,Black or African American alone,"Census Tract 78.08, District of Columbia, District of Columbia",4153,580
-1400000US11001001702,2,White alone,"Census Tract 17.02, District of Columbia, District of Columbia",1265,147
-1400000US11001009507,4,Black or African American alone,"Census Tract 95.07, District of Columbia, District of Columbia",1482,231
-1400000US11001001803,4,Black or African American alone,"Census Tract 18.03, District of Columbia, District of Columbia",2612,261
-1400000US11001002701,2,White alone,"Census Tract 27.01, District of Columbia, District of Columbia",3635,424
-1400000US11001009905,4,Black or African American alone,"Census Tract 99.05, District of Columbia, District of Columbia",2643,398
-1400000US11001003302,2,White alone,"Census Tract 33.02, District of Columbia, District of Columbia",965,133
-1400000US11001008701,2,White alone,"Census Tract 87.01, District of Columbia, District of Columbia",805,162
-1400000US11001000901,4,Black or African American alone,"Census Tract 9.01, District of Columbia, District of Columbia",630,263
-1400000US11001000902,2,White alone,"Census Tract 9.02, District of Columbia, District of Columbia",2193,193
-1400000US11001004801,2,White alone,"Census Tract 48.01, District of Columbia, District of Columbia",861,182
-1400000US11001010500,4,Black or African American alone,"Census Tract 105, District of Columbia, District of Columbia",1552,297
-1400000US11001008701,4,Black or African American alone,"Census Tract 87.01, District of Columbia, District of Columbia",1474,307
-1400000US11001010200,4,Black or African American alone,"Census Tract 102, District of Columbia, District of Columbia",1071,244
-1400000US11001001901,2,White alone,"Census Tract 19.01, District of Columbia, District of Columbia",648,193
-1400000US11001009501,2,White alone,"Census Tract 95.01, District of Columbia, District of Columbia",1923,341
+id,Geographic Area Name,Estimate!!Total,Estimate!!Total!!Population of one race,Estimate!!Total!!Population of one race!!White,Estimate!!Total!!Population of one race!!Black or African American,Estimate!!Total!!Population of one race!!American Indian and Alaska Native,Estimate!!Total!!Population of one race!!Asian alone,Estimate!!Total!!Population of one race!!Native Hawaiian and Other Pacific Islander,Estimate!!Total!!Population of one race!!Some other race,Estimate!!Total!!Population of two or more races,Estimate!!Total!!Population of two or more races!!Two races including Some other race,"Estimate!!Total!!Population of two or more races!!Two races excluding Some other race, and three or more races",Estimate!!Total!!Population of two or more races!!Population of two races,Estimate!!Total!!Population of two or more races!!Population of two races!!White; Black or African American,Estimate!!Total!!Population of two or more races!!Population of two races!!White; American Indian and Alaska Native,Estimate!!Total!!Population of two or more races!!Population of two races!!White; Asian,Estimate!!Total!!Population of two or more races!!Population of two races!!Black or African American; American Indian and Alaska Native,Estimate!!Total!!Population of two or more races!!Population of two races!!All other two race combinations,Estimate!!Total!!Population of two or more races!!Population of three races,Estimate!!Total!!Population of two or more races!!Population of four or more races
+1400000US11001009902,"Census Tract 99.02",3085,3043,48,2979,0,16,0,0,42,25,17,42,7,0,0,10,25,0,0
+1400000US11001009904,"Census Tract 99.04",2970,2925,50,2572,0,0,12,291,45,6,39,45,33,0,0,6,6,0,0
+1400000US11001000100,"Census Tract 1",5160,5036,4554,34,0,320,0,128,124,0,124,124,16,0,108,0,0,0,0
+1400000US11001000801,"Census Tract 8.01",6426,6076,4961,534,30,386,0,165,350,13,337,350,126,13,184,0,27,0,0
+1400000US11001000802,"Census Tract 8.02",3567,3351,2658,321,0,292,0,80,216,61,155,216,60,16,63,0,77,0,0
+1400000US11001001001,"Census Tract 10.01",7742,7310,6491,304,0,422,0,93,432,17,415,432,25,0,314,76,17,0,0
+1400000US11001006202,"Census Tract 62.02",60,60,60,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1400000US11001007804,"Census Tract 78.04",3833,3722,40,3667,0,15,0,0,111,0,111,80,56,0,0,0,24,31,0
+1400000US11001008001,"Census Tract 80.01",3308,3157,2192,813,0,108,0,44,151,9,142,151,39,35,68,0,9,0,0
+1400000US11001008301,"Census Tract 83.01",2366,2324,2013,233,0,56,0,22,42,10,32,42,0,8,14,10,10,0,0
+1400000US11001008803,"Census Tract 88.03",2778,2674,793,1692,0,53,10,126,104,46,58,104,49,0,4,0,51,0,0
+1400000US11001009301,"Census Tract 93.01",3450,3338,1372,1737,0,156,0,73,112,0,112,101,28,10,11,26,26,11,0
+1400000US11001009504,"Census Tract 95.04",3464,3417,997,1909,288,141,0,82,47,0,47,47,18,0,29,0,0,0,0
+1400000US11001000501,"Census Tract 5.01",3545,3458,2943,162,0,82,0,271,87,20,67,87,17,2,48,0,20,0,0
+1400000US11001001301,"Census Tract 13.01",4133,4099,3060,578,0,461,0,0,34,0,34,34,20,0,14,0,0,0,0
+1400000US11001002102,"Census Tract 21.02",5223,5059,824,3449,98,40,0,648,164,0,164,102,46,0,9,35,12,34,28
+1400000US11001002202,"Census Tract 22.02",3476,3382,532,2023,8,27,0,792,94,0,94,80,57,10,13,0,0,14,0
+1400000US11001002302,"Census Tract 23.02",1670,1610,594,851,0,63,0,102,60,0,60,49,42,0,5,2,0,11,0
+1400000US11001003400,"Census Tract 34",4911,4765,1444,2992,0,169,6,154,146,0,146,141,38,11,76,7,9,5,0
+1400000US11001005800,"Census Tract 58",3395,3255,2348,334,0,563,0,10,140,11,129,122,31,8,72,0,11,18,0
+1400000US11001006400,"Census Tract 64",2569,2551,548,1950,0,30,0,23,18,0,18,18,0,0,0,18,0,0,0
+1400000US11001003700,"Census Tract 37",5461,5385,2614,2217,0,218,0,336,76,0,76,76,27,17,0,0,32,0,0
+1400000US11001007407,"Census Tract 74.07",3164,3164,60,3104,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1400000US11001009203,"Census Tract 92.03",2998,2879,614,2081,52,10,0,122,119,24,95,119,42,22,0,31,24,0,0
+1400000US11001001302,"Census Tract 13.02",7623,7378,5818,630,0,543,0,387,245,110,135,245,0,33,102,0,110,0,0
+1400000US11001007304,"Census Tract 73.04",3913,3882,145,3637,0,0,0,100,31,0,31,31,25,0,0,6,0,0,0
+1400000US11001001100,"Census Tract 11",5110,4930,4242,300,27,270,17,74,180,19,161,180,43,0,118,0,19,0,0
+1400000US11001002802,"Census Tract 28.02",5172,4968,2326,1163,3,354,0,1122,204,0,204,204,102,0,74,0,28,0,0
+1400000US11001004100,"Census Tract 41",2541,2443,1998,106,8,184,0,147,98,12,86,90,0,0,60,0,30,8,0
+1400000US11001009602,"Census Tract 96.02",3705,3663,27,3596,0,11,0,29,42,0,42,19,0,0,0,19,0,23,0
+1400000US11001000201,"Census Tract 2.01",3817,3598,2456,353,6,721,0,62,219,8,211,219,6,7,182,0,24,0,0
+1400000US11001003800,"Census Tract 38",5140,4946,3493,920,37,298,23,175,194,0,194,194,25,0,107,0,62,0,0
+1400000US11001006900,"Census Tract 69",2582,2324,1868,440,0,16,0,0,258,0,258,206,134,25,47,0,0,52,0
+1400000US11001008701,"Census Tract 87.01",2424,2397,1066,1231,0,66,0,34,27,1,26,18,0,8,9,0,1,9,0
+1400000US11001007803,"Census Tract 78.03",4232,4188,126,3727,27,9,0,299,44,23,21,44,8,0,0,0,36,0,0
+1400000US11001009505,"Census Tract 95.05",3473,3324,387,2637,40,36,0,224,149,0,149,127,82,0,11,0,34,22,0
+1400000US11001000701,"Census Tract 7.01",5873,5660,4504,553,54,425,0,124,213,42,171,165,14,0,94,0,57,30,18
+1400000US11001003900,"Census Tract 39",4585,4503,3622,538,0,302,0,41,82,0,82,82,39,0,43,0,0,0,0
+1400000US11001007809,"Census Tract 78.09",3034,2929,0,2921,0,8,0,0,105,15,90,80,25,0,0,31,24,25,0
+1400000US11001004701,"Census Tract 47.01",4630,4510,1172,2760,0,502,0,76,120,0,120,96,0,0,26,70,0,24,0
+1400000US11001004702,"Census Tract 47.02",3320,3177,1832,985,19,230,0,111,143,0,143,116,39,12,32,7,26,27,0
+1400000US11001005001,"Census Tract 50.01",2071,1961,1523,241,0,147,0,50,110,16,94,74,14,0,44,0,16,36,0
+1400000US11001005002,"Census Tract 50.02",5860,5673,2914,1380,30,480,17,852,187,37,150,187,69,0,64,0,54,0,0
+1400000US11001009810,"Census Tract 98.10",2898,2857,3,2760,0,0,0,94,41,0,41,12,12,0,0,0,0,29,0
+1400000US11001009811,"Census Tract 98.11",4992,4878,38,4840,0,0,0,0,114,0,114,106,0,0,0,0,106,8,0
+1400000US11001010100,"Census Tract 101",2861,2805,1875,345,0,515,0,70,56,0,56,40,0,0,40,0,0,16,0
+1400000US11001010200,"Census Tract 102",2849,2722,1640,817,72,165,0,28,127,0,127,127,69,9,49,0,0,0,0
+1400000US11001010300,"Census Tract 103",4008,3836,812,1977,0,95,0,952,172,0,172,146,79,0,50,6,11,26,0
+1400000US11001010400,"Census Tract 104",4829,4781,316,4449,0,0,0,16,48,34,14,34,0,0,0,0,34,14,0
+1400000US11001010500,"Census Tract 105",3730,3562,1505,1782,0,189,37,49,168,0,168,168,120,0,48,0,0,0,0
+1400000US11001010600,"Census Tract 106",7805,7635,4952,2042,0,566,0,75,170,19,151,150,43,0,88,0,19,20,0
+1400000US11001010700,"Census Tract 107",1756,1708,1303,117,0,201,35,52,48,0,48,40,27,0,13,0,0,8,0
+1400000US11001010900,"Census Tract 109",3819,3707,41,3629,0,22,0,15,112,36,76,66,20,0,0,10,36,46,0
+1400000US11001011000,"Census Tract 110",4188,4062,2627,1132,25,244,0,34,126,0,126,83,28,0,8,47,0,43,0
+1400000US11001011100,"Census Tract 111",5571,5326,659,4569,10,80,0,8,245,14,231,165,95,0,0,56,14,0,80
+1400000US11001010800,"Census Tract 108",6356,6122,4546,689,0,805,8,74,234,23,211,216,39,5,133,10,29,18,0
+1400000US11001001702,"Census Tract 17.02",3346,3215,1605,1322,0,42,11,235,131,19,112,108,8,0,10,49,41,23,0
+1400000US11001003000,"Census Tract 30",3719,3625,1956,1277,7,162,0,223,94,37,57,94,25,0,23,0,46,0,0
+1400000US11001003301,"Census Tract 33.01",4219,4053,2020,1799,0,196,0,38,166,7,159,141,63,0,29,34,15,6,19
+1400000US11001003600,"Census Tract 36",4904,4714,2508,1211,0,553,0,442,190,0,190,187,43,0,68,0,76,0,3
+1400000US11001004202,"Census Tract 42.02",2404,2298,2022,21,8,151,0,96,106,18,88,106,25,6,50,0,25,0,0
+1400000US11001000600,"Census Tract 6",4969,4831,4042,446,0,291,0,52,138,0,138,100,0,0,89,11,0,38,0
+1400000US11001001402,"Census Tract 14.02",3443,3313,2542,302,0,303,16,150,130,0,130,130,71,7,44,0,8,0,0
+1400000US11001002702,"Census Tract 27.02",6263,5710,3918,958,0,279,0,555,553,253,300,496,105,20,50,68,253,57,0
+1400000US11001002002,"Census Tract 20.02",4304,4225,958,2436,13,101,0,717,79,18,61,79,25,0,22,0,32,0,0
+1400000US11001002101,"Census Tract 21.01",5050,4910,528,3419,30,242,0,691,140,59,81,121,27,0,17,18,59,19,0
+1400000US11001002400,"Census Tract 24",4206,4088,1705,1967,0,80,0,336,118,19,99,99,21,22,37,0,19,19,0
+1400000US11001004801,"Census Tract 48.01",2900,2789,1566,999,0,117,0,107,111,12,99,111,11,16,46,26,12,0,0
+1400000US11001004802,"Census Tract 48.02",3777,3705,1626,1620,17,429,0,13,72,7,65,72,12,0,44,9,7,0,0
+1400000US11001005301,"Census Tract 53.01",5033,4853,4049,125,14,569,0,96,180,56,124,180,22,0,102,0,56,0,0
+1400000US11001006801,"Census Tract 68.01",2380,2283,1277,891,0,87,0,28,97,9,88,97,0,43,40,5,9,0,0
+1400000US11001006804,"Census Tract 68.04",2654,2605,284,2229,24,0,0,68,49,0,49,49,22,0,0,19,8,0,0
+1400000US11001007000,"Census Tract 70",2725,2525,2171,178,0,61,0,115,200,2,198,184,97,16,63,0,8,16,0
+1400000US11001007301,"Census Tract 73.01",4746,4444,2898,1329,6,113,0,98,302,14,288,284,79,44,113,34,14,18,0
+1400000US11001007404,"Census Tract 74.04",3947,3923,77,3583,0,9,0,254,24,0,24,9,0,0,0,9,0,0,15
+1400000US11001007504,"Census Tract 75.04",2796,2789,13,2771,0,0,0,5,7,7,0,7,0,0,0,0,7,0,0
+1400000US11001007605,"Census Tract 76.05",3933,3841,221,3333,0,51,0,236,92,0,92,66,1,0,33,0,32,26,0
+1400000US11001004001,"Census Tract 40.01",4884,4765,4022,321,0,102,34,286,119,31,88,101,0,22,32,0,47,18,0
+1400000US11001001600,"Census Tract 16",4688,4477,1429,2866,0,100,0,82,211,69,142,211,74,0,5,35,97,0,0
+1400000US11001001901,"Census Tract 19.01",4315,4265,976,2657,0,117,0,515,50,0,50,50,27,0,9,7,7,0,0
+1400000US11001009508,"Census Tract 95.08",3584,3424,392,2582,78,33,0,339,160,21,139,120,12,0,0,69,39,40,0
+1400000US11001007503,"Census Tract 75.03",2552,2535,128,2389,0,0,0,18,17,0,17,17,17,0,0,0,0,0,0
+1400000US11001007601,"Census Tract 76.01",4965,4931,409,4433,0,9,0,80,34,0,34,34,0,21,0,13,0,0,0
+1400000US11001007709,"Census Tract 77.09",2410,2316,29,2266,7,0,0,14,94,25,69,94,6,0,0,53,35,0,0
+1400000US11001008903,"Census Tract 89.03",3342,3307,507,2564,0,91,0,145,35,0,35,24,8,0,16,0,0,11,0
+1400000US11001009204,"Census Tract 92.04",2765,2702,262,2198,10,11,0,221,63,9,54,63,0,0,0,26,37,0,0
+1400000US11001002600,"Census Tract 26",2585,2504,1320,963,8,154,15,44,81,13,68,66,15,8,30,0,13,15,0
+1400000US11001004002,"Census Tract 40.02",3048,3020,2707,120,0,179,0,14,28,0,28,28,0,0,28,0,0,0,0
+1400000US11001005600,"Census Tract 56",6424,6210,4655,411,18,815,0,311,214,31,183,197,76,23,67,0,31,17,0
+1400000US11001004600,"Census Tract 46",3031,2973,1355,1376,0,176,0,66,58,0,58,58,0,0,47,0,11,0,0
+1400000US11001005201,"Census Tract 52.01",6285,5934,4581,660,87,328,0,278,351,151,200,331,72,66,42,0,151,20,0
+1400000US11001005900,"Census Tract 59",2499,2405,1437,563,0,327,0,78,94,0,94,94,55,0,39,0,0,0,0
+1400000US11001007703,"Census Tract 77.03",6682,6668,0,6306,18,25,0,319,14,0,14,14,14,0,0,0,0,0,0
+1400000US11001007707,"Census Tract 77.07",4787,4726,50,4669,0,0,0,7,61,0,61,61,40,0,0,21,0,0,0
+1400000US11001008100,"Census Tract 81",3450,3355,2752,389,6,113,0,95,95,0,95,95,12,0,70,6,7,0,0
+1400000US11001008200,"Census Tract 82",3185,3021,2639,254,0,116,0,12,164,0,164,149,20,12,107,0,10,15,0
+1400000US11001008410,"Census Tract 84.10",1508,1435,827,538,5,57,0,8,73,8,65,58,6,7,30,0,15,0,15
+1400000US11001008804,"Census Tract 88.04",2849,2777,420,2122,18,186,0,31,72,0,72,72,21,0,0,23,28,0,0
+1400000US11001009201,"Census Tract 92.01",3073,2904,1442,1271,5,92,0,94,169,9,160,153,37,53,37,17,9,16,0
+1400000US11001009302,"Census Tract 93.02",1427,1403,508,839,0,0,10,46,24,0,24,19,12,0,0,7,0,5,0
+1400000US11001009507,"Census Tract 95.07",2005,1979,273,1611,0,0,0,95,26,0,26,26,7,0,0,19,0,0,0
+1400000US11001009901,"Census Tract 99.01",2711,2615,129,2273,0,207,0,6,96,17,79,75,0,0,29,10,36,21,0
+1400000US11001009903,"Census Tract 99.03",2056,2018,104,1902,0,0,0,12,38,0,38,38,38,0,0,0,0,0,0
+1400000US11001009905,"Census Tract 99.05",2926,2866,15,2835,0,0,0,16,60,0,60,60,60,0,0,0,0,0,0
+1400000US11001000202,"Census Tract 2.02",4541,4379,3623,296,41,287,14,118,162,0,162,157,57,5,47,0,48,5,0
+1400000US11001000400,"Census Tract 4",1428,1391,1238,43,0,89,0,21,37,0,37,25,11,0,14,0,0,12,0
+1400000US11001000901,"Census Tract 9.01",7448,7233,5981,553,20,527,0,152,215,35,180,207,64,15,93,0,35,8,0
+1400000US11001000902,"Census Tract 9.02",2564,2401,2235,104,0,57,0,5,163,0,163,151,62,0,89,0,0,12,0
+1400000US11001001002,"Census Tract 10.02",3519,3198,2707,194,0,256,0,41,321,101,220,304,48,38,117,0,101,17,0
+1400000US11001001200,"Census Tract 12",5247,4945,4244,338,0,345,0,18,302,0,302,302,109,0,177,16,0,0,0
+1400000US11001002001,"Census Tract 20.01",3502,3407,756,1542,66,90,0,953,95,8,87,67,27,0,24,0,16,28,0
+1400000US11001002201,"Census Tract 22.01",3169,3041,818,1723,36,83,0,381,128,49,79,128,0,0,0,79,49,0,0
+1400000US11001002502,"Census Tract 25.02",6451,6131,2019,2466,0,218,0,1428,320,10,310,285,169,54,52,0,10,35,0
+1400000US11001002900,"Census Tract 29",4424,4162,1955,1106,0,157,0,944,262,38,224,189,77,11,54,9,38,73,0
+1400000US11001003100,"Census Tract 31",3409,3313,1337,1041,34,231,0,670,96,12,84,86,47,0,27,0,12,10,0
+1400000US11001003200,"Census Tract 32",5486,5418,1670,2727,0,277,0,744,68,31,37,68,14,0,15,8,31,0,0
+1400000US11001003302,"Census Tract 33.02",2308,2230,1221,860,4,122,0,23,78,0,78,73,12,0,53,0,8,5,0
+1400000US11001007100,"Census Tract 71",3279,3205,1065,1982,0,139,0,19,74,0,74,74,38,11,18,0,7,0,0
+1400000US11001004300,"Census Tract 43",4076,3962,2787,802,23,151,0,199,114,0,114,114,0,0,92,0,22,0,0
+1400000US11001004901,"Census Tract 49.01",3115,3025,1693,1048,0,121,0,163,90,37,53,85,20,0,4,24,37,5,0
+1400000US11001006500,"Census Tract 65",2760,2682,2332,306,0,5,0,39,78,0,78,58,42,0,6,0,10,20,0
+1400000US11001007708,"Census Tract 77.08",3055,3055,0,3055,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1400000US11001007807,"Census Tract 78.07",2297,2227,15,2155,0,7,0,50,70,0,70,29,0,0,0,7,22,11,30
+1400000US11001008402,"Census Tract 84.02",2240,2128,1513,584,0,25,0,6,112,0,112,102,49,0,43,0,10,10,0
+1400000US11001008802,"Census Tract 88.02",4463,4413,1224,3067,13,77,0,32,50,0,50,21,0,0,21,0,0,29,0
+1400000US11001009603,"Census Tract 96.03",4040,4018,10,3953,0,16,0,39,22,0,22,22,0,0,0,11,11,0,0
+1400000US11001009801,"Census Tract 98.01",2275,2237,49,2140,14,0,0,34,38,0,38,38,0,0,0,0,38,0,0
+1400000US11001009802,"Census Tract 98.02",2010,2010,57,1947,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0
+1400000US11001009804,"Census Tract 98.04",2993,2889,34,2661,0,7,0,187,104,0,104,104,13,0,0,82,9,0,0
+1400000US11001001401,"Census Tract 14.01",3548,3458,2711,282,19,402,0,44,90,0,90,90,36,0,54,0,0,0,0
+1400000US11001007409,"Census Tract 74.09",4392,4246,36,3922,0,104,0,184,146,0,146,146,46,0,0,100,0,0,0
+1400000US11001006802,"Census Tract 68.02",2578,2496,1693,753,0,44,0,6,82,6,76,82,26,0,50,0,6,0,0
+1400000US11001007806,"Census Tract 78.06",2447,2447,40,2370,33,0,0,4,0,0,0,0,0,0,0,0,0,0,0
+1400000US11001007901,"Census Tract 79.01",4193,4114,1053,2896,26,23,0,116,79,0,79,55,23,0,32,0,0,24,0
+1400000US11001008002,"Census Tract 80.02",3380,3321,2379,845,0,69,0,28,59,12,47,59,19,13,3,0,24,0,0
+1400000US11001008702,"Census Tract 87.02",3074,2967,1110,1635,0,152,0,70,107,14,93,107,40,23,30,0,14,0,0
+1400000US11001009601,"Census Tract 96.01",2511,2505,71,2421,0,0,0,13,6,0,6,6,0,0,6,0,0,0,0
+1400000US11001009400,"Census Tract 94",4806,4669,787,3680,35,99,0,68,137,8,129,137,63,0,29,7,38,0,0
+1400000US11001009501,"Census Tract 95.01",7277,6902,2082,3354,11,246,5,1204,375,13,362,349,117,168,47,2,15,16,10
+1400000US11001009906,"Census Tract 99.06",1630,1605,20,1571,0,8,0,6,25,0,25,25,19,0,0,6,0,0,0
+1400000US11001009907,"Census Tract 99.07",2955,2931,15,2916,0,0,0,0,24,0,24,24,24,0,0,0,0,0,0
+1400000US11001004902,"Census Tract 49.02",3256,3052,1576,777,63,328,0,308,204,137,67,204,11,0,56,0,137,0,0
+1400000US11001009509,"Census Tract 95.09",3246,3149,292,2538,0,0,0,319,97,14,83,97,75,0,0,0,22,0,0
+1400000US11001009803,"Census Tract 98.03",3071,3060,0,3052,8,0,0,0,11,0,11,11,0,0,0,11,0,0,0
+1400000US11001000300,"Census Tract 3",6334,6232,5300,462,0,470,0,0,102,22,80,102,36,0,44,0,22,0,0
+1400000US11001000702,"Census Tract 7.02",3355,3219,2561,218,25,312,0,103,136,20,116,121,27,18,44,0,32,15,0
+1400000US11001001500,"Census Tract 15",6186,6005,5569,358,0,78,0,0,181,0,181,153,38,0,0,0,115,28,0
+1400000US11001001804,"Census Tract 18.04",5879,5849,618,3912,0,55,0,1264,30,0,30,30,0,0,11,0,19,0,0
+1400000US11001002301,"Census Tract 23.01",3599,3478,1047,1919,0,70,0,442,121,9,112,57,12,6,30,0,9,64,0
+1400000US11001002501,"Census Tract 25.01",3289,3167,845,1494,0,50,0,778,122,38,84,89,26,0,0,0,63,33,0
+1400000US11001003500,"Census Tract 35",5173,5060,1158,3426,37,206,0,233,113,8,105,113,49,15,23,9,17,0,0
+1400000US11001004201,"Census Tract 42.01",3692,3603,3161,211,0,111,0,120,89,0,89,89,18,23,27,0,21,0,0
+1400000US11001004400,"Census Tract 44",5742,5571,3515,1460,0,343,0,253,171,0,171,171,33,16,107,15,0,0,0
+1400000US11001006600,"Census Tract 66",2061,1940,1824,38,0,76,0,2,121,7,114,121,0,0,114,0,7,0,0
+1400000US11001006700,"Census Tract 67",4404,4314,3558,533,0,181,17,25,90,12,78,90,0,25,22,0,43,0,0
+1400000US11001007408,"Census Tract 74.08",3423,3423,70,3101,87,0,0,165,0,0,0,0,0,0,0,0,0,0,0
+1400000US11001007502,"Census Tract 75.02",5342,5322,59,5263,0,0,0,0,20,0,20,20,11,0,0,9,0,0,0
+1400000US11001007603,"Census Tract 76.03",4530,4500,333,3927,0,75,0,165,30,0,30,30,30,0,0,0,0,0,0
+1400000US11001007406,"Census Tract 74.06",3474,3408,2,3120,0,0,11,275,66,0,66,26,15,0,0,11,0,40,0
+1400000US11001007903,"Census Tract 79.03",1968,1939,500,1385,0,27,0,27,29,10,19,29,5,0,14,0,10,0,0
+1400000US11001008904,"Census Tract 89.04",4065,3945,368,3293,0,39,0,245,120,30,90,120,77,0,0,0,43,0,0
+1400000US11001009000,"Census Tract 90",3680,3635,414,3177,0,13,31,0,45,45,0,45,0,0,0,0,45,0,0
+1400000US11001007200,"Census Tract 72",5807,5602,3968,1363,0,248,0,23,205,0,205,177,28,0,149,0,0,28,0
+1400000US11001007401,"Census Tract 74.01",1876,1876,65,1732,0,27,0,52,0,0,0,0,0,0,0,0,0,0,0
+1400000US11001007403,"Census Tract 74.03",2790,2790,48,2699,0,0,0,43,0,0,0,0,0,0,0,0,0,0,0
+1400000US11001007604,"Census Tract 76.04",4522,4368,225,3985,36,17,0,105,154,30,124,83,42,0,0,11,30,54,17
+1400000US11001007808,"Census Tract 78.08",3939,3877,11,3795,29,19,0,23,62,0,62,29,0,0,22,0,7,33,0
+1400000US11001008302,"Census Tract 83.02",2683,2561,1970,436,2,140,0,13,122,0,122,122,45,0,75,2,0,0,0
+1400000US11001009102,"Census Tract 91.02",4888,4783,572,4079,0,76,0,56,105,36,69,104,5,0,29,13,57,1,0
+1400000US11001009503,"Census Tract 95.03",3247,3205,740,2427,0,32,0,6,42,8,34,35,0,0,27,0,8,7,0
+1400000US11001009604,"Census Tract 96.04",2343,2320,105,2172,24,0,0,19,23,0,23,23,13,0,0,5,5,0,0
+1400000US11001009700,"Census Tract 97",3313,3313,38,3267,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0
+1400000US11001009807,"Census Tract 98.07",3617,3588,134,3454,0,0,0,0,29,0,29,29,29,0,0,0,0,0,0
+1400000US11001000502,"Census Tract 5.02",3371,3305,2985,106,26,121,11,56,66,0,66,59,18,0,41,0,0,7,0
+1400000US11001001803,"Census Tract 18.03",4328,4234,305,2568,0,9,0,1352,94,20,74,35,0,9,0,6,20,40,19
+1400000US11001001902,"Census Tract 19.02",2605,2473,611,1699,7,16,0,140,132,4,128,116,46,14,47,0,9,16,0
+1400000US11001002701,"Census Tract 27.01",6183,5884,3247,1222,61,198,0,1156,299,52,247,238,50,17,56,0,115,61,0
+1400000US11001002801,"Census Tract 28.01",4151,3982,1535,1439,0,127,0,881,169,118,51,169,0,15,15,0,139,0,0
+1400000US11001005500,"Census Tract 55",6901,6793,5560,476,0,634,0,123,108,65,43,108,0,33,10,0,65,0,0
