@@ -1,0 +1,222 @@
+---
+title: "Analysis of bikeshare data"
+subtitle: "DS241 Final Project"
+
+author: "Cameron Mitchell, Louis Keith, Peter-John King"
+date: "11/13/2020"
+output: html_notebook
+---
+
+The goal of this analysis is to gain some knowledge about the Washington D.C. bikeshare data coming from the Capital Bikeshare service, and ultimately be used to make a regression model to understand the relationships between variables. This might then allow us to develop a strategy  to increase ridership. This is only one part of a larger project that is analyzing trends in the bikeshare data when taking other factors into consideration. 
+
+The other teams that are working on this project include the demographic team, the crime team, and the mapping team. The demographic and crime team are looking for trends in Washington D.C. that might help our analysis. The mapping team is attempting to visually show information on real maps.
+
+## Prepare workspace:
+
+Load packages:
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(skimr)
+library(summarytools)
+library(lubridate)
+library(grid)
+library(tibble)
+library(gridExtra)
+
+library(sf)
+library(leaflet)
+library(tmap)
+library(tmaptools)
+```
+
+## Data
+
+The Capital Bikeshare system provides free data for anyone to use. It tracks information such as where riders go, when they ride, how far they go and much more.
+Link to the download location:
+https://s3.amazonaws.com/capitalbikeshare-data/index.html
+
+We were originally going to work with data from August of 2020, but we decided to go back to a time before Covid-19 and use data from August of 2018.
+
+Read the data:
+
+We read the original .csv file and add in the variables new variables 'duration_min', 'hour_of_day', and 'day of week' with mutate.
+
+```{r}
+dfa = read_csv("../data_raw/201808-capitalbikeshare-tripdata.csv") %>%
+  clean_names()
+```
+
+We summarize that dataframe to identify data types, missing data, et cetera.
+
+```{r}
+skim(dfa)
+```
+
+Upon comparing the two datasets we recognize that there are differences in the columns between the two. One important discrepency is the lack of longitude and latitude positions within the 2018 dataset. We attempted to use the `tidygeocoder` package to get the latitudes and longitudes however attempting that produced N/As owing to the fact that the addresses were not formatted appropriately for the package. 
+
+As such we decided to use the 2020 dataset to map the addresses found in that dataset to the 2018 dataset. 
+
+```{r}
+dfcoord = read_csv("../data_raw/202008-capitalbikeshare-tripdata.csv") %>%
+  clean_names()
+
+dfa$start_lat <- dfcoord$start_lat[match(dfa$start_station, dfcoord$start_station_name)]
+dfa$start_lng <- dfcoord$start_lng[match(dfa$start_station, dfcoord$start_station_name)]
+
+dfa$end_lat <- dfcoord$end_lat[match(dfa$end_station, dfcoord$end_station_name)]
+dfa$end_lng <- dfcoord$end_lng[match(dfa$end_station, dfcoord$end_station_name)]
+```
+We observed from compating the 2020 data with the 2018 is that the 2018 data has approximately 150,000 more observations. We infer the reasoning behind this is due to the impact that Covid-19 had on this company rather than a lack of interest in ridership, in general.
+
+
+## Cleaning
+
+Now we need to clean the data by removing the incomplete, incorrect, and irrelevant data from the dataframe. One part of the data that was incomplete was for the instances where the addresses did not match up, which left the longitude and latitude values as 'NA'. Another thing we should correct is the end dates that extend into September.
+
+```{r}
+
+dfb = dfa %>%
+  filter(!is.na(start_lat),
+         !is.na(end_lat),
+         (month(end_date) == 08),
+         )
+```
+
+This ends up being about 47,000 observations (or a little under 12%) that we will take out of the dataframe. This still leaves more than enough data to work with for the analysis.
+
+
+## Data Manipulation And Visualization
+
+If our main goal in this analysis is to increase ridership within census tracts, we need to first determine what ridership actually means. As a team we decided that the amount of time measured in duration of ride (in minutes). 
+
+We made the decision to measure ridership in terms of the `start_station`. Upon calculation, we found that the median distance between a `start_station` and `end_station` is approximately 1.5 km (1 mile). As such, it is likely that the variables that we are considering have limited effect at such short distances.  
+
+```{r}
+
+haversine <- function(long1, lat1, long2, lat2, round = 3) {
+  # convert to radians
+  long1 = long1 * pi / 180
+  lat1  = lat1  * pi / 180
+  long2 = long2 * pi / 180
+  lat2  = lat2  * pi / 180
+  
+  R = 6371 # Earth mean radius in km
+  
+  a = sin((lat2 - lat1)/2)^2 + cos(lat1) * cos(lat2) * sin((long2 - long1)/2)^2
+  d = R * 2 * asin(sqrt(a))
+  
+  return( round(d,round) ) # distance in km
+}
+
+median((dfc %>% mutate(dist = haversine(start_lng, start_lat, end_lng, end_lat)))$dist)
+
+
+```
+
+We created a `duration` column which measures the total duration of the ridership (in minutes). Before we group, total duration within each census tract, we first determine the total ridership for each `start_station`. This is done for the period of the entire month. We thought that given the fact that census, crime, and other forms of data are unlikely to be collected at a frequent basis, we thought that each observation would have to be for a given census tract rather than some combination of census tract and time. 
+
+
+```{r}
+dfc = dfb %>% mutate(duration = as.numeric(end_date - start_date)) %>% 
+  group_by(start_station) %>% mutate(tot_dur = sum(duration)) %>%
+  select(start_station, start_lat, start_lng, tot_dur) %>% distinct(start_station, .keep_all = TRUE)
+
+```
+
+
+### Read shapefile data
+
+Now, for the sake of the project we need to determine the duration of ridership in each census tract. We first read the census tract data from storage as a shapefile
+
+```{r}
+
+shp_path = file.path("../data_raw/tl_2019_11_tract/tl_2019_11_tract.shp")
+census_sf =  st_read(shp_path) %>% clean_names()
+```
+
+
+```{r}
+tmap_mode("view")
+tm_shape(census_sf)+tm_polygons(alpha=.3)
+```
+
+
+### Plotting both datasets
+
+Next, we create an sf object from `dfc`. This allows us to spatially manipulate the bikeshare data
+
+
+```{r}
+bikes_sf = st_as_sf(dfc, coords = c("start_lng", "start_lat"), 
+                 crs = 4269, agr = "constant")
+```
+
+```{r}
+tm_shape(bikes_sf)+tm_dots(size=.01,alpha=.8)+
+  tm_shape(census_sf)+tm_polygons(alpha=.3)+
+  tm_basemap( leaflet::providers$OpenStreetMap )
+```
+
+
+
+### Statial Join
+
+
+Since we have both the census tract data and the bikeshare data, we can leftjoin the bikeshare with census tract.
+
+```{r}
+dfj=st_join(bikes_sf,census_sf,join=st_within)
+
+dfj1 =st_join(census_sf,bikes_sf,join=st_contains)
+dfj2 =st_join(census_sf,bikes_sf,join=st_contains) %>% count(name) 
+dfj2 %>% tm_shape()  +tm_polygons("n",alpha=.6)+
+  tm_basemap( leaflet::providers$OpenStreetMap )
+
+```
+
+Using the merged census tract and bikeshare data we can create a single dataframe containing the following information:
+ * census tract
+ * total ridership 
+ * number of bike stations
+
+To do this, we perform a series of operations on the `dfj` spatial dataframe. We first remove all n/a values from the df. 
+This effectively removes the data of all the rides not in the dc proper. 
+
+We then group by the name of the census tract and count the total number of stations in the tract. This may be useful to another group. More importantly, 
+we calculate the total ridership for each census tract. 
+
+Following this, we converted the spatial dataframe to a normal dataframe. We removed the unecessary columns and only kept the distinct ones. 
+
+Now, there are some census tracts which don't have bikes. And as such they are not included in that final dataframe. As such, we join with the census dataframe to get the other census tracts and replace the N/As with 0.  
+
+```{r}
+
+bike_final = dfj %>% drop_na %>% group_by(name) %>% 
+  mutate(num_stations = n(), ridership = sum(tot_dur)) %>% 
+  as.data.frame() %>% select(name, num_stations, ridership) %>% distinct(name, .keep_all = TRUE) 
+ 
+
+census_df = census_sf %>% as.data.frame() %>% select(name)
+
+bike_final = bike_final %>% right_join(census_df, by = "name") %>% replace_na(list(num_stations = 0, ridership = 0)) 
+
+```
+
+Out of curiosity, we decided to create a scatterplot of the ridership against the number of bike stations in a tract to see if there is a linear relationship between the two or if there are external factors contributing to the ridership within the census tracts 
+
+```{r}
+
+bike_final %>% ggplot(mapping = aes(x=num_stations, y=ridership)) + geom_point() + geom_smooth()
+```
+
+From the plot, it seems as though the ridership increases almost polynomially with the number of stations. It is hard to assess why this may be the case without looking at other variables. 
+
+For now we will save the processed data in a csv file for use by other groups
+
+```{r}
+
+bike_final %>% write_csv("../data/201808-capitalbikeshare-tripdata-processed.csv")
+```

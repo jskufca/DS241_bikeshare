@@ -23,12 +23,14 @@ library(summarytools)
 library(ggplot2)
 ```
 
-**DEMOGRAPHIC ANALYSIS IN DC PER CENSUS TRACT**
 
-First We load the census dataset for race demographic
+
+First We load the census datasets one for income and one for race demographic
 We then clean the names of the variables in the datasets
 
 ```{r}
+incomefile <- read_csv("../data_raw/DCincome.csv") %>% clean_names()
+
 demofile <- read_csv("../data_raw/DCdemographics.csv") %>% clean_names()
 ```
 Only selecting the columns that we need and renaming them for clarity
@@ -72,6 +74,7 @@ tmap_mode("view")
 tm_shape(census_sf)+tm_polygons(alpha=.3)
 ```
 *Then you should be able to cross reference the data by tract on the map. We tried to plot the demographic and income data on the map for each census tract but could not figure out how.*
+
 
 
 **INCOME ANALYSIS IN DC PER CENSUS TRACT**
@@ -118,4 +121,5 @@ df_Income4= df_income3 %>% slice_sample(n=6)
 df_Income4 %>% ggplot(aes(x=namelsad, y=estimate_households_mean_income_dollars )) +
   geom_point()
 ```
+
 
