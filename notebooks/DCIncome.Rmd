@@ -1,0 +1,62 @@
+---
+title: "DC Income in 2018"
+author: "Demetrius Boone Joe Tudor Richard Panel"
+output: html_notebook
+---
+#Read packages
+```{r}
+library(sf)
+library(leaflet)
+library(tmap)
+library(tidyverse)
+library(janitor)
+library(readxl)
+library(skimr)
+library(summarytools)
+library(ggplot2)
+```
+
+Import data
+```{r}
+df_Income <- read.csv("../data_raw/DCincome.csv") %>% clean_names()
+```
+
+Select only the types of income we care about(Household) and the area name
+```{r}
+df_Income2 <- df_Income %>% select(c(geographic_area_name,estimate_households_mean_income_dollars))
+```
+
+Plot the data for visualization 
+```{r}
+df_Income2 %>% ggplot(aes(x=geographic_area_name, y=estimate_households_mean_income_dollars )) +
+  geom_point()
+```
+But lets try to clean it up so you can see spefic ones you may be interested in,
+first lets read shapefile data
+
+
+```{r}
+census_sf =  st_read("../data_raw/tl_2019_11_tract/tl_2019_11_tract.shp") %>% clean_names()
+```
+
+```{r}
+tmap_mode("view")
+tm_shape(census_sf)+tm_polygons(alpha=.3)
+```
+Rename and join files together allowing for the data to be all in one
+
+```{r}
+df_Income3 = rename(df_Income2, namelsad= geographic_area_name)
+
+Income_sf = full_join(df_Income3, census_sf)
+```
+
+Plot to then be able to cross reference certain areas on the map with the random ones chosen to be seen.
+
+```{r}
+df_Income4= df_income3 %>% slice_sample(n=6)
+
+df_Income4 %>% ggplot(aes(x=nameslsad, y=estimate_households_mean_income_dollars )) +
+  geom_point()
+```
+
