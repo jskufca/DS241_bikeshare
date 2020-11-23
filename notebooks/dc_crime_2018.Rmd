@@ -81,3 +81,15 @@ dfj2 %>% tm_shape()  +tm_polygons("n",alpha=.6)+
   tm_basemap( leaflet::providers$OpenStreetMap )
 
 ```
+
+Now that we've created some nice visualizations, it is time to figure out what we want to use for the regression analysis.
+
+After some playing around, I decided that using total crimes is the most appropriate measure of crime in an area. Yes, some crimes are more serious than others, but the distributions are similar. In addition, all crimes have an impact on the area regardless of the offense. 
+
+It works out that this data frame was already created in the analysis above (df_crime3). The only thing that needs to be changed is to omit the NA's.
+
+```{r}
+final_crime <- df_crime3 %>% na.omit()
+```
+
+This final data frame should provide an accurate prediction for crime in DC for our regression analysis.
